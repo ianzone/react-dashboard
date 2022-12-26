@@ -1,2 +1,2 @@
-// stateful functions
+// common stateful functions
 export * from './useCounter';

@@ -13,7 +13,8 @@
     "plugin:@typescript-eslint/recommended",
     "airbnb",
     "airbnb-typescript",
-    "airbnb/hooks"
+    "airbnb/hooks",
+    "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -28,10 +29,6 @@
     "@typescript-eslint/comma-dangle": "off",
     "react/jsx-one-expression-per-line": "off",
     "react/react-in-jsx-scope": "off",
-    "jsx-quotes": [
-      "warn",
-      "prefer-single"
-    ],
     "no-shadow": "off",
     "@typescript-eslint/no-shadow": "off",
     "import/prefer-default-export": "off",
