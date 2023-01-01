@@ -14,6 +14,8 @@
 # Get it running
 
 ```
+degit ianzone/react-template <project name>
+cd <project name>
 pnpm i
 pnpm run dev
 ```
