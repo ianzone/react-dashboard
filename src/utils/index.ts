@@ -1,4 +1,4 @@
-// common pure functions
+// common stateless functions
 export function FnName() {
-  return 'common pure functions';
+  return 'common stateless functions';
 }

@@ -10,3 +10,39 @@
 [![stylelint](https://img.shields.io/badge/Stylelint-blue?logo=Stylelint&labelColor=grey)](https://stylelint.io/)
 [![pnpm](https://img.shields.io/badge/pnpm-orange?logo=pnpm&labelColor=grey)](https://pnpm.io/)
 [![prettier](https://img.shields.io/badge/Prettier-56b3b4?logo=Prettier&labelColor=grey)](https://prettier.io/docs/en/options.html)
+
+# Src Folder structure
+
+## assets/
+
+static assets including images, videos and audios.
+
+## components/
+
+common pure components
+
+## containers/
+
+common components with business logics and side effects
+
+## hooks/
+
+common stateful functions
+
+## utils/
+
+common stateless functions
+
+## services/
+
+api calls
+
+## pages/
+
+each route
+
+## styles/
+
+global styles
+
+## configs/
