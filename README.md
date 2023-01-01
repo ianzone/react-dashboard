@@ -11,7 +11,14 @@
 [![pnpm](https://img.shields.io/badge/pnpm-orange?logo=pnpm&labelColor=grey)](https://pnpm.io/)
 [![prettier](https://img.shields.io/badge/Prettier-56b3b4?logo=Prettier&labelColor=grey)](https://prettier.io/docs/en/options.html)
 
-# Src Folder structure
+# Get it running
+
+```
+pnpm i
+pnpm run dev
+```
+
+# src Folder structure
 
 ## assets/
 
