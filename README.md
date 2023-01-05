@@ -44,7 +44,7 @@ common stateless functions
 
 ## services/
 
-api calls
+common api calls
 
 ## pages/
 
