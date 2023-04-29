@@ -12,7 +12,6 @@
 [![prettier](https://img.shields.io/badge/Prettier-56b3b4?logo=Prettier&labelColor=grey)](https://prettier.io/docs/en/options.html)
 
 # Get it running
-
 ```
 degit ianzone/react-template <project name>
 cd <project name>
@@ -23,35 +22,28 @@ pnpm run dev
 # src Folder structure
 
 ## assets/
-
-static assets including images, videos and audios.
+static assets including images, videos, audios...
 
 ## components/
-
 common pure components
 
 ## containers/
-
 common components with business logics and side effects
 
 ## hooks/
-
 common stateful functions
 
 ## utils/
-
 common stateless functions
 
 ## services/
-
 common api calls
 
 ## pages/
-
 each route
 
 ## styles/
-
 global styles
 
 ## configs/
+app configurations
