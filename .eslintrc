@@ -6,6 +6,7 @@
   "plugins": [
     "react",
     "react-hooks",
+    "react-refresh",
     "@typescript-eslint"
   ],
   "extends": [
