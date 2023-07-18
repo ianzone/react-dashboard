@@ -11,7 +11,8 @@
   ],
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "airbnb",
     "airbnb-typescript",
     "airbnb/hooks",
@@ -22,9 +23,10 @@
     "ecmaFeatures": {
       "jsx": true
     },
+    "project": true,
+    "tsconfigRootDir": ".",
     "ecmaVersion": "latest",
-    "sourceType": "module",
-    "project": "./tsconfig.json"
+    "sourceType": "module"
   },
   "rules": {
     "@typescript-eslint/comma-dangle": "off",
