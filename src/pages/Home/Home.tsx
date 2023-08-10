@@ -1,13 +1,12 @@
 import { reactLogo } from 'src/assets';
-import { MyComponent } from 'src/components';
-import { MyContainer } from 'src/containers';
 import { useCounter } from 'src/hooks';
+import './home.css';
 
-export function MyPage() {
+export function Home() {
   const { count, increment } = useCounter();
-
   return (
-    <div className='App'>
+    <div>
+      <h1>Home</h1>
       <div>
         <a href='https://vitejs.dev' target='_blank' rel='noreferrer'>
           <img src='/vite.svg' className='logo' alt='Vite logo' />
@@ -27,8 +26,6 @@ export function MyPage() {
         <p>{JSON.stringify(import.meta.env)}</p>
       </div>
       <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-      <MyContainer />
-      <MyComponent />
     </div>
   );
 }
