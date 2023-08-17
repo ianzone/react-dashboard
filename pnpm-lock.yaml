@@ -6,11 +6,14 @@ settings:
 
 dependencies:
   antd:
-    specifier: ^5.8.2
-    version: 5.8.2(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.8.3
+    version: 5.8.3(react-dom@18.2.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
+  react-auth-kit:
+    specifier: ^2.12.6
+    version: 2.12.6(js-cookie@3.0.5)(jwt-decode@3.1.2)(react-dom@18.2.0)(react-router-dom@6.15.0)(react@18.2.0)
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
@@ -1315,8 +1318,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /antd@5.8.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-kkC2BSBde1JzJxk2wNYj/NXgNZQZ2yu6avJoCKleSi32nsjiadi7FFu1AyGxIzoJ9CrxoLacjGvrwbKJQ6kCvw==}
+  /antd@5.8.3(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/DIGg/1UXyPdNLs9FYalfJO1LnnwMv2pnx9DS6ANSJwlo6fDxtb693IJWdaBuRlxgXJfARzxMNsPyFygy9N/Qw==}
     peerDependencies:
       react: '>=16.9.0'
       react-dom: '>=16.9.0'
@@ -1350,7 +1353,7 @@ packages:
       rc-motion: 2.7.3(react-dom@18.2.0)(react@18.2.0)
       rc-notification: 5.0.5(react-dom@18.2.0)(react@18.2.0)
       rc-pagination: 3.5.0(react-dom@18.2.0)(react@18.2.0)
-      rc-picker: 3.12.0(dayjs@1.11.9)(react-dom@18.2.0)(react@18.2.0)
+      rc-picker: 3.13.0(dayjs@1.11.9)(react-dom@18.2.0)(react@18.2.0)
       rc-progress: 3.4.2(react-dom@18.2.0)(react@18.2.0)
       rc-rate: 2.12.0(react-dom@18.2.0)(react@18.2.0)
       rc-resize-observer: 1.3.1(react-dom@18.2.0)(react@18.2.0)
@@ -1359,7 +1362,7 @@ packages:
       rc-slider: 10.1.1(react-dom@18.2.0)(react@18.2.0)
       rc-steps: 6.0.1(react-dom@18.2.0)(react@18.2.0)
       rc-switch: 4.1.0(react-dom@18.2.0)(react@18.2.0)
-      rc-table: 7.32.1(react-dom@18.2.0)(react@18.2.0)
+      rc-table: 7.32.2(react-dom@18.2.0)(react@18.2.0)
       rc-tabs: 12.9.0(react-dom@18.2.0)(react@18.2.0)
       rc-textarea: 1.3.4(react-dom@18.2.0)(react@18.2.0)
       rc-tooltip: 6.0.1(react-dom@18.2.0)(react@18.2.0)
@@ -3302,6 +3305,11 @@ packages:
       istanbul-lib-report: 3.0.1
     dev: true
 
+  /js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
+    dev: false
+
   /js-sha3@0.8.0:
     resolution: {integrity: sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==}
     dev: false
@@ -3366,6 +3374,10 @@ packages:
       object.assign: 4.1.4
       object.values: 1.1.6
     dev: true
+
+  /jwt-decode@3.1.2:
+    resolution: {integrity: sha512-UfpWE/VZn0iP50d8cz9NrZLM9lSWhcJ+0Gt/nm4by88UL+J1SiKN8/5dkjMmbEzwL2CAe+67GsegCbIKtbp75A==}
+    dev: false
 
   /kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
@@ -4336,8 +4348,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /rc-picker@3.12.0(dayjs@1.11.9)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-SsEhK4hbjAh3pvlqujIQaMcx6mLAwc0KN0TS9dJ0rtwGuUnSDa/mKgna/LjZlOT7U//b+dIH5BLSZttpklRG9A==}
+  /rc-picker@3.13.0(dayjs@1.11.9)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-hJ+1lGkemnvsW+t+PjH9OAehHlj7wdD0G75T1HZj0IeZTqBE/5mmuf8E8MHYATNBqW409lAfk8GwjYm1WVMopg==}
     engines: {node: '>=8.x'}
     peerDependencies:
       date-fns: '>= 2.x'
@@ -4479,8 +4491,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /rc-table@7.32.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-fHMQteKMocUC9I9Vex3eBLH7QsiaMR/qtzh3B1Ty2PoNGwVTwVdDFyRL05zch+JU3KnNNczgQeVvtf/p//gdrQ==}
+  /rc-table@7.32.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-2JlUXlsZNLYO5hMb/8GAHBp7+fAvuYHt8ps641DCEDttQWIBe049CGcL2aqol1xHQyDpXWTCWS69gmkKkCwD5w==}
     engines: {node: '>=8.x'}
     peerDependencies:
       react: '>=16.9.0'
@@ -4610,6 +4622,23 @@ packages:
       rc-util: 5.36.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
+
+  /react-auth-kit@2.12.6(js-cookie@3.0.5)(jwt-decode@3.1.2)(react-dom@18.2.0)(react-router-dom@6.15.0)(react@18.2.0):
+    resolution: {integrity: sha512-sCv5uv/5UkP+aN8kzJdCZvfMzsOGBnEBVsJkiLmIMXuloBXoDoZV2k38QpYlPHESAz2HlPraZuISF26GRGLU8w==}
+    engines: {node: '>=8'}
+    peerDependencies:
+      js-cookie: ^3.0.1
+      jwt-decode: ^3.1.2
+      react: '>=16.8.0 || ^17.x || ^18.x'
+      react-dom: '>=16.8.0 || ^17.x || ^18.x'
+      react-router-dom: ^6.2.0
+    dependencies:
+      js-cookie: 3.0.5
+      jwt-decode: 3.1.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      react-router-dom: 6.15.0(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
   /react-dom@18.2.0(react@18.2.0):

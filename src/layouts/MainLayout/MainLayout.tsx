@@ -1,9 +1,10 @@
 import { Layout } from 'antd';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Header } from './Header/Header';
 import { MenuList } from './MenuList';
 
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 export function MainLayout() {
   const [collapsed, setCollapsed] = useState(false);
   return (
@@ -13,7 +14,7 @@ export function MainLayout() {
         <MenuList />
       </Sider>
       <Layout>
-        <Header>header</Header>
+        <Header />
         <Content>
           <Outlet />
         </Content>

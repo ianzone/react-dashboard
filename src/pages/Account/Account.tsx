@@ -1,3 +1,10 @@
+import { AuthStatus } from './AuthStatus';
+
 export function Account() {
-  return <div>Account</div>;
+  return (
+    <div>
+      Account
+      <AuthStatus />
+    </div>
+  );
 }
