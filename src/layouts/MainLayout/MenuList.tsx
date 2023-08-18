@@ -3,9 +3,7 @@ import { AiOutlineFileText, AiOutlineUser } from 'react-icons/ai';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'src/pages';
 
-type MenuItem = Required<MenuProps>['items'][number];
-
-const items: MenuItem[] = [
+const items: MenuProps['items'] = [
   {
     key: routes.home,
     label: 'Home',

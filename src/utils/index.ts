@@ -1,4 +1,2 @@
 // common stateless functions
-export function FnName() {
-  return 'common stateless functions';
-}
+export * from './auth';
