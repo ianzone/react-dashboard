@@ -14,13 +14,13 @@
 # Get it running
 
 ```
-degit ianzone/react-template <project name>
+degit ianzone/react-portal <project name>
 cd <project name>
 pnpm i
 pnpm run dev
 ```
 
-# src Folder structure
+# src solder structure
 
 ## assets/
 
