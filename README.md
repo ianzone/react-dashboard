@@ -20,7 +20,7 @@ pnpm i
 pnpm run dev
 ```
 
-# src solder structure
+# src folder structure
 
 ## assets/
 
