@@ -11,7 +11,7 @@
 [![pnpm](https://img.shields.io/badge/pnpm-orange?logo=pnpm&labelColor=grey)](https://pnpm.io/)
 [![prettier](https://img.shields.io/badge/Prettier-56b3b4?logo=Prettier&labelColor=grey)](https://prettier.io/docs/en/options.html)
 
-# Get it running
+# Get it started
 
 ```
 degit ianzone/react-portal <project name>
@@ -20,7 +20,7 @@ pnpm i
 pnpm run dev
 ```
 
-# src folder structure
+# Folder structure
 
 ## assets/
 
@@ -57,3 +57,7 @@ each route
 ## styles/
 
 global styles
+
+# TODO
+
+replace eslint and prettier with biome when css is supported https://biomejs.dev/internals/language-support/
