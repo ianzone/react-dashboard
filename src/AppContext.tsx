@@ -35,7 +35,7 @@ function AppProvider({ children }: { children: ReactNode }) {
       setIdToken,
       reset,
     }),
-    [accessToken, idToken]
+    [accessToken, idToken, reset],
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -57,7 +57,3 @@ each route
 ## styles/
 
 global styles
-
-# TODO
-
-replace eslint and prettier with biome when css is supported https://biomejs.dev/internals/language-support/

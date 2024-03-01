@@ -1,3 +1,3 @@
 export default {
-  app_name: 'first app'
+  app_name: 'first app',
 };
