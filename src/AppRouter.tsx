@@ -31,7 +31,6 @@ export const router = createBrowserRouter(
           element={<Account />}
           loader={protectedLoader}
         />
-        R
       </Route>
       <Route path='*' element={<NotFound />} />
     </Route>,

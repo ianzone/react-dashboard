@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Form, useActionData, useLocation, useNavigation } from 'react-router-dom';
 
 export function SignIn() {
