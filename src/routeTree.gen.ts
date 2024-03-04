@@ -14,12 +14,12 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as DashboardImport } from './routes/_dashboard'
+import { Route as DashboardIndexImport } from './routes/_dashboard/index'
+import { Route as DashboardAccountImport } from './routes/_dashboard/account'
 
 // Create Virtual Routes
 
 const SignLazyImport = createFileRoute('/sign')()
-const DashboardIndexLazyImport = createFileRoute('/_dashboard/')()
-const DashboardAccountLazyImport = createFileRoute('/_dashboard/account')()
 
 // Create/Update Routes
 
@@ -33,19 +33,15 @@ const DashboardRoute = DashboardImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const DashboardIndexLazyRoute = DashboardIndexLazyImport.update({
+const DashboardIndexRoute = DashboardIndexImport.update({
   path: '/',
   getParentRoute: () => DashboardRoute,
-} as any).lazy(() =>
-  import('./routes/_dashboard/index.lazy').then((d) => d.Route),
-)
+} as any)
 
-const DashboardAccountLazyRoute = DashboardAccountLazyImport.update({
+const DashboardAccountRoute = DashboardAccountImport.update({
   path: '/account',
   getParentRoute: () => DashboardRoute,
-} as any).lazy(() =>
-  import('./routes/_dashboard/account.lazy').then((d) => d.Route),
-)
+} as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -60,11 +56,11 @@ declare module '@tanstack/react-router' {
       parentRoute: typeof rootRoute
     }
     '/_dashboard/account': {
-      preLoaderRoute: typeof DashboardAccountLazyImport
+      preLoaderRoute: typeof DashboardAccountImport
       parentRoute: typeof DashboardImport
     }
     '/_dashboard/': {
-      preLoaderRoute: typeof DashboardIndexLazyImport
+      preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof DashboardImport
     }
   }
@@ -73,10 +69,7 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren([
-  DashboardRoute.addChildren([
-    DashboardAccountLazyRoute,
-    DashboardIndexLazyRoute,
-  ]),
+  DashboardRoute.addChildren([DashboardAccountRoute, DashboardIndexRoute]),
   SignLazyRoute,
 ])
 

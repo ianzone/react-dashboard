@@ -10,7 +10,9 @@ export function Dashboard() {
   return (
     <Layout style={{ height: '100vh' }}>
       <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
-        <img src='/vite.svg' alt='Vite logo' />
+        <div style={{ display: 'grid', placeItems: 'center', margin: '15px' }}>
+          <img src='/vite.svg' alt='Vite logo' />
+        </div>
         <MenuList />
       </Sider>
       <Layout>
