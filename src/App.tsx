@@ -1,12 +1,12 @@
+import { StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import AuthProvider from 'react-auth-kit';
 import createStore from 'react-auth-kit/createStore';
 import { IconContext } from 'react-icons';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools'; // https://tanstack.com/query/latest/docs/react/devtools
-import { RouterProvider } from 'react-router-dom';
 import { AppProvider } from './AppContext';
-import { router } from './AppRouter';
+import { RouteProvider } from './contexts/RouteProvider';
 
 const queryClient = new QueryClient();
 const iconValue = { size: '1.2rem' };
@@ -23,20 +23,25 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <IconContext.Provider value={iconValue}>
-        <ConfigProvider
-          theme={{
-            token: {
-              colorPrimary: '#0053bc',
-              borderRadius: 14,
-            },
-          }}
+        <StyleProvider
+          // https://github.com/ant-design/ant-design/issues/45560
+          hashPriority='high'
         >
-          <AppProvider>
-            <AuthProvider store={store}>
-              <RouterProvider router={router} />
-            </AuthProvider>
-          </AppProvider>
-        </ConfigProvider>
+          <ConfigProvider
+            theme={{
+              token: {
+                // colorPrimary: '#0053bc',
+                // borderRadius: 14,
+              },
+            }}
+          >
+            <AppProvider>
+              <AuthProvider store={store}>
+                <RouteProvider />
+              </AuthProvider>
+            </AppProvider>
+          </ConfigProvider>
+        </StyleProvider>
       </IconContext.Provider>
       <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
     </QueryClientProvider>

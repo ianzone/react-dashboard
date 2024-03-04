@@ -1,4 +1,4 @@
-export function ForgotPassword() {
+export function Password() {
   return (
     <div>
       <h1>ForgotPassword</h1>

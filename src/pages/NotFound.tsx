@@ -1,15 +1,15 @@
+import { useRouter } from '@tanstack/react-router';
 import { Button, Result } from 'antd';
-import { useNavigate } from 'react-router-dom';
 
 export function NotFound() {
-  const navigate = useNavigate();
+  const { history } = useRouter();
   return (
     <Result
       status='404'
       title='404'
       subTitle='Sorry, the page you visited does not exist.'
       extra={
-        <Button type='primary' onClick={() => navigate(-1)}>
+        <Button type='primary' onClick={() => history.go(-1)}>
           Go Back
         </Button>
       }

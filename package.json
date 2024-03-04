@@ -15,23 +15,26 @@
     "commit": "git add . && git-cz"
   },
   "dependencies": {
-    "antd": "^5.14.2",
+    "@ant-design/cssinjs": "^1.18.4",
+    "@tanstack/react-router": "^1.18.3",
+    "@tanstack/router-devtools": "^1.18.3",
+    "antd": "^5.15.0",
     "react": "^18.2.0",
     "react-auth-kit": "^3.1.2",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
-    "react-query": "^3.39.3",
-    "react-router-dom": "^6.22.2"
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.5.3",
+    "@tanstack/router-vite-plugin": "^1.18.1",
     "@testing-library/react": "^14.2.1",
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@vitejs/plugin-react-swc": "^3.6.0",
     "@vitest/ui": "^1.3.1",
-    "autoprefixer": "^10.4.17",
+    "autoprefixer": "^10.4.18",
     "c8": "^9.1.0",
     "git-cz": "^4.9.0",
     "happy-dom": "^13.6.2",
@@ -41,7 +44,7 @@
     "stylelint-order": "^6.0.4",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.3.3",
-    "vite": "^5.1.3",
+    "vite": "^5.1.4",
     "vite-plugin-biome": "^1.0.8",
     "vite-plugin-stylelint": "5.3.1",
     "vitest": "^1.3.1"

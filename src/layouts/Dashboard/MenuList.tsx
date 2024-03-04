@@ -1,6 +1,6 @@
+import { useNavigate, useRouterState } from '@tanstack/react-router';
 import { Menu, MenuProps } from 'antd';
 import { AiOutlineFileText, AiOutlineUser } from 'react-icons/ai';
-import { useLocation, useNavigate } from 'react-router-dom';
 import { routes } from 'src/pages';
 
 const items: MenuProps['items'] = [
@@ -18,19 +18,19 @@ const items: MenuProps['items'] = [
 
 export function MenuList() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouterState();
 
   const onSelect = (e: { key: string }) => {
-    navigate(e.key);
+    navigate({ to: e.key });
   };
 
   return (
     <Menu
-      theme='dark'
+      // theme='dark'
       mode='inline'
       onSelect={onSelect}
       items={items}
-      selectedKeys={[location.pathname]}
+      selectedKeys={[router.location.pathname]}
     />
   );
 }

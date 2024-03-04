@@ -1,6 +1,5 @@
 import { reactLogo } from 'src/assets';
 import { useCounter } from 'src/hooks';
-import './home.css';
 
 export function Home() {
   const { count, increment } = useCounter();
