@@ -1,5 +1,6 @@
-import { Flex, Image, Layout } from 'antd';
+import { Flex, Layout } from 'antd';
 const { Content, Footer } = Layout;
+import { Figure } from 'src/components';
 import { Segments } from './Segments';
 
 export function Sign() {
@@ -7,9 +8,7 @@ export function Sign() {
     <Layout style={{ height: '100%' }}>
       <Content>
         <Flex vertical align='center' style={{ height: '100%' }}>
-          <div style={{ marginTop: '10%' }}>
-            <Image width={100} src='/vite.svg' />
-          </div>
+          <Figure width='6rem' style={{ marginTop: '8%' }} src='/vite.svg' alt='Vite logo' />
           <Segments />
         </Flex>
       </Content>
