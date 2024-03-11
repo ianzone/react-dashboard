@@ -1,4 +1,4 @@
-import { Avatar, Badge, Dropdown, MenuProps, Space } from 'antd';
+import { Avatar, Badge, Dropdown, type MenuProps, Space } from 'antd';
 import { AiOutlineLogout, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
 
 export function AvatarSection() {
