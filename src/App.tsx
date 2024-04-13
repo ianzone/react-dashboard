@@ -1,6 +1,6 @@
 import { AppProvider, AuthProvider, QueryProvider, RouteProvider, UIProvider } from './contexts';
 
-function App() {
+export function App() {
   return (
     <QueryProvider>
       <UIProvider>
@@ -13,5 +13,3 @@ function App() {
     </QueryProvider>
   );
 }
-
-export default App;
