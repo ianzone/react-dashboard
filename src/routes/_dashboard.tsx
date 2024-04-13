@@ -1,10 +1,11 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { Navigate, createFileRoute } from '@tanstack/react-router';
+import { Spin } from 'antd';
 import { Dashboard } from 'src/layouts';
-import { Sign } from 'src/pages';
 import { isAuthenticated } from 'src/services';
 
 export const Route = createFileRoute('/_dashboard')({
-  component: () => {
-    return isAuthenticated() ? <Dashboard /> : <Sign />;
-  },
+  loader: isAuthenticated,
+  component: Dashboard,
+  pendingComponent: () => <Spin fullscreen size='large' tip='Loading' />,
+  errorComponent: () => <Navigate to='/sign' />,
 });

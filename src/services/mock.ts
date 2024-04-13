@@ -4,14 +4,13 @@ function sleep(seconds: number) {
   });
 }
 
-const mockErr = false;
 export const mock = {
   enable: true,
-  fc: async (rt?: any, err = 'Network error mock') => {
+  call: async (res?: any, err?: any) => {
     await sleep(1);
-    if (mockErr) {
+    if (err) {
       throw new Error(err);
     }
-    return rt;
+    return res;
   },
 };

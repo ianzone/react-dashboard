@@ -1,7 +1,10 @@
+import { useNavigate } from '@tanstack/react-router';
 import { Avatar, Badge, Dropdown, type MenuProps, Space } from 'antd';
 import { AiOutlineLogout, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
+import { signOut } from 'src/services';
 
 export function AvatarSection() {
+  const navigate = useNavigate();
   const items: MenuProps['items'] = [
     {
       key: 'message',
@@ -29,7 +32,9 @@ export function AvatarSection() {
       label: 'Logout',
       icon: <AiOutlineLogout />,
       onClick: () => {
-        // fetcher.submit({}, { method: 'post', action: routes.logout });
+        signOut().then(() => {
+          navigate({ to: '/sign' });
+        });
       },
     },
   ];
