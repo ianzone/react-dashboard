@@ -1,7 +1,7 @@
 import { resolve } from 'node:path';
 import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import react from '@vitejs/plugin-react-swc';
-import biomePlugin from 'vite-plugin-biome';
+import biomePlugin from 'vite-plugin-biomejs';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import { defineConfig } from 'vitest/config';
 
@@ -15,12 +15,7 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
   },
-  plugins: [
-    TanStackRouterVite(),
-    react(),
-    stylelintPlugin(),
-    biomePlugin({ mode: 'check', files: 'src', applyFixes: true, failOnError: true }),
-  ],
+  plugins: [TanStackRouterVite(), react(), stylelintPlugin(), biomePlugin()],
   resolve: {
     alias: {
       src: resolve(__dirname, 'src'),

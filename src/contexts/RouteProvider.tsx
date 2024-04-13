@@ -20,12 +20,15 @@ declare module '@tanstack/react-router' {
   }
 }
 
-// https://tanstack.com/router/latest/docs/framework/react/devtools
-export const RouteProvider = () => {
+export function RouteProvider() {
   return (
     <>
       <RouterProvider router={router} />
-      <TanStackRouterDevtools router={router} />
+      <TanStackRouterDevtools
+        // https://tanstack.com/router/latest/docs/framework/react/devtools
+        router={router}
+        position='bottom-right'
+      />
     </>
   );
-};
+}
