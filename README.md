@@ -1,20 +1,39 @@
-[![husky](https://img.shields.io/badge/pre%20commit-f64d27?logo=pre-commit&labelColor=grey)](https://typicode.github.io/husky/)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen)](http://commitizen.github.io/cz-cli/)
+# Toolchain
+
+## Building
+
+[![pnpm](https://img.shields.io/badge/pnpm-orange?logo=pnpm&labelColor=grey)](https://pnpm.io/)
+[![Lefthook](https://img.shields.io/badge/Lefthook-ff1e1e?labelColor=grey&logo=git)](https://github.com/evilmartians/lefthook/)
 [![typescript](https://badges.aleen42.com/src/typescript.svg)](https://www.typescriptlang.org/)
 [![vite](https://badges.aleen42.com/src/vitejs.svg)](https://vitejs.dev/)
-[![vitest](https://img.shields.io/badge/Vitest-729b1b?logo=Vitest&labelColor=grey)](https://vitest.dev/)
-[![react](https://img.shields.io/badge/React-149eca?logo=React&labelColor=grey)](https://beta.reactjs.org/)
-[![scss](https://img.shields.io/badge/Scss-CC6699?logo=sass&labelColor=grey)](https://sass-lang.com/guide)
-[![eslint](https://img.shields.io/badge/Eslint-4930bd?logo=ESLint&labelColor=grey)](https://eslint.org/)
-[![airbnb](https://img.shields.io/badge/Code%20Style-f86468?logo=airbnb&labelColor=grey)](https://github.com/airbnb/javascript/)
+
+## Testing
+
+[![biome](https://img.shields.io/badge/Biome-blue?logo=biome&labelColor=grey)](https://biomejs.dev/)
 [![stylelint](https://img.shields.io/badge/Stylelint-blue?logo=Stylelint&labelColor=grey)](https://stylelint.io/)
-[![pnpm](https://img.shields.io/badge/pnpm-orange?logo=pnpm&labelColor=grey)](https://pnpm.io/)
-[![prettier](https://img.shields.io/badge/Prettier-56b3b4?logo=Prettier&labelColor=grey)](https://prettier.io/docs/en/options.html)
+[![vitest](https://img.shields.io/badge/Vitest-729b1b?logo=Vitest&labelColor=grey)](https://vitest.dev/)
+[![Testing Library](https://img.shields.io/badge/Testing_Library-E33332?logo=testinglibrary&labelColor=grey)](https://testing-library.com/docs/react-testing-library/intro/)
+[![Faker](https://img.shields.io/badge/Mock-Faker-blue)](https://fakerjs.dev/api/)
+
+## Components
+
+[![react](https://img.shields.io/badge/React-149eca?logo=React&labelColor=grey)](https://beta.reactjs.org/)
+[![AntDesign](https://img.shields.io/badge/AntDesign-blue?logo=antdesign&labelColor=grey)](https://ant-design.gitee.io/components/overview-cn/?theme=dark)
+[![TanstackQuery](https://img.shields.io/badge/TanstackQuery-FF4154?logo=reactquery&labelColor=grey)](https://tanstack.com/query/latest/docs/framework/react/overview/)
+[![TanstackRouter](https://img.shields.io/badge/TanstackRouter-green?logo=reactquery&labelColor=grey)](https://tanstack.com/router/latest/docs/framework/react/overview)
+
+## Styling
+
+[![TailwindCSS](https://img.shields.io/badge/tailwindcss-06B6D4?logo=tailwindcss&labelColor=grey)](https://tailwindcss.com/docs/guides/vite)
+
+## Options
+
+[![PWA](https://img.shields.io/badge/PWA-35849a?logo=pwa&labelColor=grey)](https://vite-pwa-org.netlify.app/)
 
 # Get it started
 
 ```
-degit ianzone/react-portal <project name>
+degit https://github.com/ianzone/react-spa <project name>
 cd <project name>
 pnpm i
 pnpm run dev
@@ -22,38 +41,19 @@ pnpm run dev
 
 # Folder structure
 
-## assets/
+| Folder      | Description                                      |
+| ----------- | ------------------------------------------------ |
+| assets/     | Static assets such as images, videos, audios...  |
+| components/ | Pure components                                  |
+| containers/ | Components with business logics and side effects |
+| contexts/   | Shared contexts                                  |
+| hooks/      | Stateful functions                               |
+| utils/      | Stateless functions                              |
+| pages/      | Pages                                            |
+| routes/     | Tanstack Routes                                  |
+| services/   | API calls                                        |
+| styles/     | Global css, fonts                                |
 
-static assets including images, videos, audios...
+# TODO
 
-## components/
-
-common pure components
-
-## containers/
-
-common components with business logics and side effects
-
-## configs/
-
-app configurations
-
-## hooks/
-
-common stateful functions
-
-## utils/
-
-common stateless functions
-
-## services/
-
-common api calls
-
-## pages/
-
-each route
-
-## styles/
-
-global styles
+replace stylelint with biome when css support is done. https://github.com/biomejs/biome/issues/2409
