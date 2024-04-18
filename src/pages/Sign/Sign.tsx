@@ -7,7 +7,7 @@ export function Sign() {
   return (
     <Layout style={{ height: '100%' }}>
       <Content>
-        <Flex vertical align='center' style={{ height: '100%' }}>
+        <Flex vertical align='center'>
           <Figure width='6rem' style={{ marginTop: '8%' }} src='/vite.svg' alt='Vite logo' />
           <Segments />
         </Flex>

@@ -1,11 +1,11 @@
 import { Navigate, createFileRoute } from '@tanstack/react-router';
-import { Spin } from 'antd';
+import RingLoader from 'react-spinners/RingLoader';
 import { Dashboard } from 'src/layouts';
 import { isAuthenticated } from 'src/services';
 
 export const Route = createFileRoute('/_dashboard')({
   loader: isAuthenticated,
   component: Dashboard,
-  pendingComponent: () => <Spin fullscreen size='large' tip='Loading' />,
+  pendingComponent: () => <RingLoader />,
   errorComponent: () => <Navigate to='/sign' />,
 });
