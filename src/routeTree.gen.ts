@@ -11,15 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as SignImport } from './routes/sign'
+import { Route as SignImport } from './routes/_sign'
 import { Route as DashboardImport } from './routes/_dashboard'
 import { Route as DashboardIndexImport } from './routes/_dashboard/index'
+import { Route as SignSignupImport } from './routes/_sign/signup'
+import { Route as SignSigninImport } from './routes/_sign/signin'
+import { Route as SignForgotpassImport } from './routes/_sign/forgotpass'
 import { Route as DashboardAccountImport } from './routes/_dashboard/account'
 
 // Create/Update Routes
 
 const SignRoute = SignImport.update({
-  path: '/sign',
+  id: '/_sign',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -33,6 +36,21 @@ const DashboardIndexRoute = DashboardIndexImport.update({
   getParentRoute: () => DashboardRoute,
 } as any)
 
+const SignSignupRoute = SignSignupImport.update({
+  path: '/signup',
+  getParentRoute: () => SignRoute,
+} as any)
+
+const SignSigninRoute = SignSigninImport.update({
+  path: '/signin',
+  getParentRoute: () => SignRoute,
+} as any)
+
+const SignForgotpassRoute = SignForgotpassImport.update({
+  path: '/forgotpass',
+  getParentRoute: () => SignRoute,
+} as any)
+
 const DashboardAccountRoute = DashboardAccountImport.update({
   path: '/account',
   getParentRoute: () => DashboardRoute,
@@ -43,18 +61,51 @@ const DashboardAccountRoute = DashboardAccountImport.update({
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/_dashboard': {
+      id: '/_dashboard'
+      path: ''
+      fullPath: ''
       preLoaderRoute: typeof DashboardImport
       parentRoute: typeof rootRoute
     }
-    '/sign': {
+    '/_sign': {
+      id: '/_sign'
+      path: ''
+      fullPath: ''
       preLoaderRoute: typeof SignImport
       parentRoute: typeof rootRoute
     }
     '/_dashboard/account': {
+      id: '/_dashboard/account'
+      path: '/account'
+      fullPath: '/account'
       preLoaderRoute: typeof DashboardAccountImport
       parentRoute: typeof DashboardImport
     }
+    '/_sign/forgotpass': {
+      id: '/_sign/forgotpass'
+      path: '/forgotpass'
+      fullPath: '/forgotpass'
+      preLoaderRoute: typeof SignForgotpassImport
+      parentRoute: typeof SignImport
+    }
+    '/_sign/signin': {
+      id: '/_sign/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SignSigninImport
+      parentRoute: typeof SignImport
+    }
+    '/_sign/signup': {
+      id: '/_sign/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignSignupImport
+      parentRoute: typeof SignImport
+    }
     '/_dashboard/': {
+      id: '/_dashboard/'
+      path: '/'
+      fullPath: '/'
       preLoaderRoute: typeof DashboardIndexImport
       parentRoute: typeof DashboardImport
     }
@@ -63,9 +114,65 @@ declare module '@tanstack/react-router' {
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([
-  DashboardRoute.addChildren([DashboardAccountRoute, DashboardIndexRoute]),
-  SignRoute,
-])
+export const routeTree = rootRoute.addChildren({
+  DashboardRoute: DashboardRoute.addChildren({
+    DashboardAccountRoute,
+    DashboardIndexRoute,
+  }),
+  SignRoute: SignRoute.addChildren({
+    SignForgotpassRoute,
+    SignSigninRoute,
+    SignSignupRoute,
+  }),
+})
 
 /* prettier-ignore-end */
+
+/* ROUTE_MANIFEST_START
+{
+  "routes": {
+    "__root__": {
+      "filePath": "__root.tsx",
+      "children": [
+        "/_dashboard",
+        "/_sign"
+      ]
+    },
+    "/_dashboard": {
+      "filePath": "_dashboard.tsx",
+      "children": [
+        "/_dashboard/account",
+        "/_dashboard/"
+      ]
+    },
+    "/_sign": {
+      "filePath": "_sign.tsx",
+      "children": [
+        "/_sign/forgotpass",
+        "/_sign/signin",
+        "/_sign/signup"
+      ]
+    },
+    "/_dashboard/account": {
+      "filePath": "_dashboard/account.tsx",
+      "parent": "/_dashboard"
+    },
+    "/_sign/forgotpass": {
+      "filePath": "_sign/forgotpass.tsx",
+      "parent": "/_sign"
+    },
+    "/_sign/signin": {
+      "filePath": "_sign/signin.tsx",
+      "parent": "/_sign"
+    },
+    "/_sign/signup": {
+      "filePath": "_sign/signup.tsx",
+      "parent": "/_sign"
+    },
+    "/_dashboard/": {
+      "filePath": "_dashboard/index.tsx",
+      "parent": "/_dashboard"
+    }
+  }
+}
+ROUTE_MANIFEST_END */

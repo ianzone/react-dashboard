@@ -1,12 +1,12 @@
 import { Outlet } from '@tanstack/react-router';
 import { Layout } from 'antd';
+const { Content, Sider } = Layout;
 import { useState } from 'react';
 import { Figure } from 'src/components';
 import { Header } from './Header/Header';
 import { MenuList } from './MenuList';
 
-const { Content, Sider } = Layout;
-export function Dashboard() {
+export function DashboardLayout() {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ height: '100vh' }}>

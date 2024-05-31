@@ -4,12 +4,12 @@ import { Alert, Button, Checkbox, Form, Input } from 'antd';
 import { signIn } from 'src/services';
 
 type FieldType = {
-  username: string;
-  password: string;
+  phone: string;
+  otp: string;
   remember: boolean;
 };
 
-export function SignIn() {
+export function SignInPhone() {
   const navigate = useNavigate();
 
   const { mutate, isPending, isError, error } = useMutation({
@@ -21,25 +21,25 @@ export function SignIn() {
 
   return (
     <Form
-      name='signin'
+      name='SignInPhone'
       layout='vertical'
       initialValues={{ remember: true }}
       onFinish={mutate}
       style={{ width: '100%' }}
     >
       <Form.Item<FieldType>
-        label='Username'
-        name='username'
-        rules={[{ required: true, message: 'Please input your username!' }]}
+        label='Phone'
+        name='phone'
+        rules={[{ required: true, type: 'string', message: 'Please input your phone!' }]}
       >
         <Input />
       </Form.Item>
       <Form.Item<FieldType>
-        label='Password'
-        name='password'
-        rules={[{ required: true, message: 'Please input your password!' }]}
+        label='OTP code'
+        name='otp'
+        rules={[{ required: true, message: 'Please input your OTP code!' }]}
       >
-        <Input.Password />
+        <Input />
       </Form.Item>
       <Form.Item<FieldType> name='remember' valuePropName='checked'>
         <Checkbox>Remember me</Checkbox>

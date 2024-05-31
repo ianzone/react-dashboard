@@ -33,7 +33,7 @@ export function AvatarSection() {
       icon: <AiOutlineLogout />,
       onClick: () => {
         signOut().then(() => {
-          navigate({ to: '/sign' });
+          navigate({ to: '/signin' });
         });
       },
     },

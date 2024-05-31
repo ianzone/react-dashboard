@@ -26,7 +26,6 @@ export function RouteProvider() {
       <RouterProvider router={router} />
       <TanStackRouterDevtools
         // https://tanstack.com/router/latest/docs/framework/react/devtools
-        // @ts-ignore
         router={router}
         position='bottom-right'
       />
