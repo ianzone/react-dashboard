@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from '@tanstack/react-router';
-import { Alert, Button, Checkbox, Form, Input } from 'antd';
+import { Link, useNavigate } from '@tanstack/react-router';
+import { Alert, Button, Checkbox, Flex, Form, Input } from 'antd';
+const { Item } = Form;
 import { signIn } from 'src/services';
 
 type FieldType = {
@@ -21,34 +22,39 @@ export function SignInEmail() {
 
   return (
     <Form
-      name='signin'
+      name='SignInEmail'
       layout='vertical'
       initialValues={{ remember: true }}
       onFinish={mutate}
       style={{ width: '100%' }}
     >
-      <Form.Item<FieldType>
+      <Item<FieldType>
         label='Email'
         name='email'
         rules={[{ required: true, type: 'email', message: 'Please input your email!' }]}
       >
         <Input />
-      </Form.Item>
-      <Form.Item<FieldType>
+      </Item>
+      <Item<FieldType>
         label='Password'
         name='password'
         rules={[{ required: true, message: 'Please input your password!' }]}
       >
         <Input.Password />
-      </Form.Item>
-      <Form.Item<FieldType> name='remember' valuePropName='checked'>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-      <Form.Item>
+      </Item>
+      <Flex justify='space-between'>
+        <Item<FieldType> name='remember' valuePropName='checked'>
+          <Checkbox>Remember me</Checkbox>
+        </Item>
+        <Item>
+          <Link to='/forgotpass'>Forgot password?</Link>
+        </Item>
+      </Flex>
+      <Item>
         <Button type='primary' htmlType='submit' style={{ width: '100%' }} loading={isPending}>
           Submit
         </Button>
-      </Form.Item>
+      </Item>
       {isError && <Alert message={error.message} type='error' showIcon closable />}
     </Form>
   );

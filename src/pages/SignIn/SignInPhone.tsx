@@ -1,6 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from '@tanstack/react-router';
-import { Alert, Button, Checkbox, Form, Input } from 'antd';
+import { Link, useNavigate } from '@tanstack/react-router';
+import { Alert, Button, Checkbox, Flex, Form, Input } from 'antd';
+const { Item } = Form;
 import { signIn } from 'src/services';
 
 type FieldType = {
@@ -27,28 +28,33 @@ export function SignInPhone() {
       onFinish={mutate}
       style={{ width: '100%' }}
     >
-      <Form.Item<FieldType>
+      <Item<FieldType>
         label='Phone'
         name='phone'
         rules={[{ required: true, type: 'string', message: 'Please input your phone!' }]}
       >
         <Input />
-      </Form.Item>
-      <Form.Item<FieldType>
+      </Item>
+      <Item<FieldType>
         label='OTP code'
         name='otp'
         rules={[{ required: true, message: 'Please input your OTP code!' }]}
       >
         <Input />
-      </Form.Item>
-      <Form.Item<FieldType> name='remember' valuePropName='checked'>
-        <Checkbox>Remember me</Checkbox>
-      </Form.Item>
-      <Form.Item>
+      </Item>
+      <Flex justify='space-between'>
+        <Item<FieldType> name='remember' valuePropName='checked'>
+          <Checkbox>Remember me</Checkbox>
+        </Item>
+        <Item>
+          <Link to='/forgotpass'>Forgot password?</Link>
+        </Item>
+      </Flex>
+      <Item>
         <Button type='primary' htmlType='submit' style={{ width: '100%' }} loading={isPending}>
           Submit
         </Button>
-      </Form.Item>
+      </Item>
       {isError && <Alert message={error.message} type='error' showIcon closable />}
     </Form>
   );
