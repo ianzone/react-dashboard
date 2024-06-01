@@ -8,7 +8,7 @@ export function SignLayout() {
     <Layout style={{ height: '100%' }}>
       <Content>
         <Flex vertical align='center'>
-          <Figure width='6rem' style={{ marginTop: '8%' }} src='/vite.svg' alt='Vite logo' />
+          <Figure width='6rem' style={{ marginTop: '8%' }} src='vite.svg' alt='Vite logo' />
           <Outlet />
         </Flex>
       </Content>
