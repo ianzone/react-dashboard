@@ -6,11 +6,9 @@ import {
   type SetStateAction,
   createContext,
   useContext,
-  useState,
 } from 'react';
 import { IconContext } from 'react-icons';
-
-type ThemeType = 'light' | 'dark' | 'system';
+import { type ThemeType, useTheme } from 'src/hooks';
 
 type UIContextType = {
   themeMode: ThemeType;
@@ -21,18 +19,7 @@ const UIContext = createContext<UIContextType | null>(null);
 UIContext.displayName = 'UIContext';
 
 export function UIProvider({ children }: { children: ReactNode }) {
-  const [themeMode, setThemeMode] = useState<ThemeType>('light');
-
-  const toUseDarkTheme = () => {
-    switch (themeMode) {
-      case 'dark':
-        return true;
-      case 'system':
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-      default:
-        return false;
-    }
-  };
+  const { displayTheme, themeMode, setThemeMode } = useTheme();
 
   return (
     <UIContext.Provider
@@ -51,7 +38,7 @@ export function UIProvider({ children }: { children: ReactNode }) {
         >
           <ConfigProvider
             theme={{
-              algorithm: toUseDarkTheme() ? theme.darkAlgorithm : theme.defaultAlgorithm,
+              algorithm: displayTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
               token: {
                 // colorPrimary: '#0053bc',
                 // borderRadius: 14,
