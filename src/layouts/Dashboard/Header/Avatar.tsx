@@ -1,23 +1,15 @@
 import { useNavigate } from '@tanstack/react-router';
-import { Avatar, Badge, Dropdown, type MenuProps, Space } from 'antd';
-import { AiOutlineLogout, AiOutlineMail, AiOutlineUser } from 'react-icons/ai';
+import { Avatar, Badge, Dropdown, type MenuProps, Space, Typography } from 'antd';
+const { Text } = Typography;
+import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
+import { FaBell } from 'react-icons/fa';
+import { I18N } from 'src/i18n';
 import { signOut } from 'src/services';
+import { Theme } from './Theme';
 
 export function AvatarSection() {
   const navigate = useNavigate();
   const items: MenuProps['items'] = [
-    {
-      key: 'message',
-      label: 'Message',
-      icon: (
-        <Badge count={3} size='small'>
-          <AiOutlineMail />
-        </Badge>
-      ),
-      onClick: () => {
-        alert('message');
-      },
-    },
     {
       key: 'account',
       label: 'Account',
@@ -40,12 +32,21 @@ export function AvatarSection() {
   ];
 
   return (
-    <Space>
-      <div style={{ color: 'white' }}>Welcome, {'user'} !</div>
+    <Space size={'middle'}>
+      <Theme />
+      <I18N />
+      <Badge count={3} size='small' style={{ display: 'block' }}>
+        <FaBell
+          onClick={() => {
+            alert('message');
+          }}
+        />
+      </Badge>
       <Dropdown menu={{ items }}>
-        <Badge dot>
-          <Avatar icon={<AiOutlineUser size='1.5rem' />} />
-        </Badge>
+        <div>
+          <Avatar style={{ margin: '0 10px' }} icon={<AiOutlineUser />} />
+          <Text>Admin</Text>
+        </div>
       </Dropdown>
     </Space>
   );

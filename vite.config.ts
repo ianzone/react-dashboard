@@ -15,7 +15,7 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
   },
-  plugins: [TanStackRouterVite(), react(), stylelintPlugin(), biomePlugin()],
+  plugins: [TanStackRouterVite(), react(), stylelintPlugin()],
   resolve: {
     alias: {
       src: resolve(__dirname, 'src'),

@@ -1,29 +1,79 @@
 import { StyleProvider } from '@ant-design/cssinjs';
-import { ConfigProvider } from 'antd';
-import type { ReactNode } from 'react';
+import { App, ConfigProvider, theme } from 'antd';
+import {
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 import { IconContext } from 'react-icons';
 
+type ThemeType = 'light' | 'dark' | 'system';
+
+type UIContextType = {
+  themeMode: ThemeType;
+  setThemeMode: Dispatch<SetStateAction<ThemeType>>;
+};
+
+const UIContext = createContext<UIContextType | null>(null);
+UIContext.displayName = 'UIContext';
+
 export function UIProvider({ children }: { children: ReactNode }) {
+  const [themeMode, setThemeMode] = useState<ThemeType>('light');
+
+  const toUseDarkTheme = () => {
+    switch (themeMode) {
+      case 'dark':
+        return true;
+      case 'system':
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      default:
+        return false;
+    }
+  };
+
   return (
-    <IconContext.Provider
-      // react-icon config https://github.com/react-icons/react-icons#configuration
-      value={{ size: '1.2rem' }}
+    <UIContext.Provider
+      value={{
+        themeMode,
+        setThemeMode,
+      }}
     >
-      <StyleProvider
-        // https://github.com/ant-design/ant-design/issues/45560
-        hashPriority='high'
+      <IconContext.Provider
+        // react-icon config https://github.com/react-icons/react-icons#configuration
+        value={{ size: '1.2em' }}
       >
-        <ConfigProvider
-          theme={{
-            token: {
-              // colorPrimary: '#0053bc',
-              // borderRadius: 14,
-            },
-          }}
+        <StyleProvider
+          // NOTE: https://github.com/ant-design/ant-design/issues/45560
+          hashPriority='high'
         >
-          {children}
-        </ConfigProvider>
-      </StyleProvider>
-    </IconContext.Provider>
+          <ConfigProvider
+            theme={{
+              algorithm: toUseDarkTheme() ? theme.darkAlgorithm : theme.defaultAlgorithm,
+              token: {
+                // colorPrimary: '#0053bc',
+                // borderRadius: 14,
+              },
+            }}
+          >
+            <App
+            // https://ant-design.antgroup.com/components/app-cn
+            >
+              {children}
+            </App>
+          </ConfigProvider>
+        </StyleProvider>
+      </IconContext.Provider>
+    </UIContext.Provider>
   );
+}
+
+export function useUIContext() {
+  const context = useContext(UIContext);
+  if (!context) {
+    throw new Error('useUIContext must be used within <UIContext.Provider>');
+  }
+  return context;
 }

@@ -22,20 +22,18 @@ function AppProvider({ children }: { children: ReactNode }) {
   const [accessToken, setAccessToken] = useState('');
   const [idToken, setIdToken] = useState('');
 
-  const reset = () => {
-    setAccessToken('');
-    setIdToken('');
-  };
-
   const value = useMemo(
     () => ({
       accessToken,
       setAccessToken,
       idToken,
       setIdToken,
-      reset,
+      reset: () => {
+        setAccessToken('');
+        setIdToken('');
+      },
     }),
-    [accessToken, idToken, reset],
+    [accessToken, idToken],
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

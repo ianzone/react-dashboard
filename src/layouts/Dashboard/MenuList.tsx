@@ -31,7 +31,6 @@ export function MenuList() {
 
   return (
     <Menu
-      theme='dark'
       mode='inline'
       onSelect={onSelect}
       items={items}
