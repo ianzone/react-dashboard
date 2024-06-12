@@ -27,7 +27,7 @@ function useSystemTheme() {
 export type ThemeType = 'light' | 'dark' | 'system';
 
 export function useTheme() {
-  const [themeMode, setThemeMode] = useState<ThemeType>('light');
+  const [themeMode, setThemeMode] = useState<ThemeType>('system');
 
   const systemTheme = useSystemTheme();
 

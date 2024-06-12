@@ -20,7 +20,7 @@ export function DashboardLayout() {
         onCollapse={(value) => setCollapsed(value)}
         theme='light'
       >
-        <Figure style={{ height: '64px' }} src={getUrl('logo.svg')} alt='logo' />
+        <Figure style={{ height: '64px' }} src={getUrl('logo.svg')} />
         <MenuList />
       </Sider>
       <Layout>

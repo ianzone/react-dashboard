@@ -1,5 +1,6 @@
 import { Divider, Layout, Space, theme } from 'antd';
 import { AvatarSection } from './Avatar';
+import { Downloads } from './Downloads';
 
 export function Header() {
   const {
@@ -13,7 +14,7 @@ export function Header() {
       <div>面包屑</div>
       <Space split={<Divider type='vertical' />}>
         <div style={{ color: 'white' }}>主页</div>
-        <div style={{ color: 'white' }}>下载</div>
+        <Downloads />
       </Space>
       <AvatarSection />
     </Layout.Header>

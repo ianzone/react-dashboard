@@ -1,12 +1,14 @@
-interface Props {
+type FigureProps = {
   width?: string;
   style?: React.CSSProperties;
   src: string;
+  title?: string;
   alt?: string;
   caption?: string;
-}
+};
 
-export function Figure({ style, src, alt, caption, width }: Props) {
+export function Figure({ style, src, title, alt, caption, width }: FigureProps) {
+  const fileName = src.split('/').pop();
   return (
     <figure
       style={{
@@ -17,7 +19,7 @@ export function Figure({ style, src, alt, caption, width }: Props) {
         ...style,
       }}
     >
-      <img src={src} alt={alt} style={{ width }} />
+      <img src={src} title={title ?? fileName} alt={alt ?? fileName} style={{ width }} />
       <figcaption>{caption}</figcaption>
     </figure>
   );
