@@ -1,12 +1,11 @@
-import { Popover, QRCode, Space, Typography } from 'antd';
-const { Text } = Typography;
-import { Figure } from 'src/components';
+import { Popover, QRCode, Space } from 'antd';
+import { Figure, Text } from 'src/components';
 
 function FigureLink({ href, src, caption }: { href: string; src: string; caption?: string }) {
   return (
     <a target='_blank' href={href} rel='noreferrer'>
       <Text>
-        <Figure width='2rem' src={src} caption={caption} />
+        <Figure style={{ height: '3rem' }} src={src} caption={caption} />
       </Text>
     </a>
   );
@@ -55,7 +54,7 @@ export function Downloads() {
   };
 
   return (
-    <Popover placement='bottom' content={<Platforms downloads={downloads} />}>
+    <Popover trigger={'click'} placement='bottom' content={<Platforms downloads={downloads} />}>
       <Text style={{ cursor: 'pointer' }}>下载</Text>
     </Popover>
   );

@@ -9,7 +9,10 @@ export function SignLayout() {
     <Layout style={{ height: '100%' }}>
       <Content>
         <Flex vertical align='center'>
-          <Figure width='6rem' style={{ marginTop: '10rem' }} src={getUrl('logo.svg')} alt='logo' />
+          <Figure
+            style={{ marginTop: '10rem', width: '6rem', height: '6rem' }}
+            src={getUrl('logo.svg')}
+          />
           <Outlet />
         </Flex>
       </Content>
