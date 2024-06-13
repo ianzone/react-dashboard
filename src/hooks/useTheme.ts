@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 
+const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
+
 function useSystemTheme() {
   const [themeMode, setThemeMode] = useState<'light' | 'dark'>(() => {
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return matchMedia.matches ? 'dark' : 'light';
   });
 
   useEffect(() => {
@@ -15,10 +17,10 @@ function useSystemTheme() {
       }
     };
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', listener);
+    matchMedia.addEventListener('change', listener);
 
     return () => {
-      window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', listener);
+      matchMedia.removeEventListener('change', listener);
     };
   }, []);
   return themeMode;

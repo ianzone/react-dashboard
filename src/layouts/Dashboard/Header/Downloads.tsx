@@ -16,11 +16,9 @@ function FigureLinkQR({ href, src, caption }: { href: string; src: string; capti
   // https://ant-design.antgroup.com/components/popover-cn?theme=dark#%E4%B8%BA%E4%BD%95%E5%9C%A8%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%B8%AD%E6%9C%89%E6%97%B6%E5%80%99%E4%BC%9A%E5%87%BA%E7%8E%B0-finddomnode-is-deprecated-%E8%BF%99%E4%B8%AA%E8%AD%A6%E5%91%8A
   return (
     <Popover placement='bottom' content={<QRCode value={href} />}>
-      <a target='_blank' href={href} rel='noreferrer'>
-        <Text>
-          <Figure width='2rem' src={src} caption={caption} />
-        </Text>
-      </a>
+      <div>
+        <FigureLink href={href} src={src} caption={caption} />
+      </div>
     </Popover>
   );
 }
