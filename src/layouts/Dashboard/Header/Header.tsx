@@ -1,6 +1,6 @@
-import { Divider, Layout, Space, theme } from 'antd';
-import { AvatarSection } from './Avatar';
-import { Downloads } from './Downloads';
+import { Layout, theme } from 'antd';
+import { HeaderLeft } from './Left/HeaderLeft';
+import { HeaderRight } from './Right/HeaderRight';
 
 export function Header() {
   const {
@@ -11,12 +11,8 @@ export function Header() {
     <Layout.Header
       style={{ display: 'flex', justifyContent: 'space-between', background: colorBgContainer }}
     >
-      <div>面包屑</div>
-      <Space split={<Divider type='vertical' />}>
-        <div style={{ color: 'white' }}>主页</div>
-        <Downloads />
-      </Space>
-      <AvatarSection />
+      <HeaderLeft />
+      <HeaderRight />
     </Layout.Header>
   );
 }
