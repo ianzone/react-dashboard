@@ -62,6 +62,27 @@
   </tr>
 </table>
 
+# Components
+
+<table>
+  <tr>
+    <th>Tasks</th>
+    <th>Tools</th>
+    <th>Options</th>
+  </tr>
+  <tr>
+    <td>Data Visualization</td>
+    <td>
+      <a href="https://antv.antgroup.com/"><img src='https://img.shields.io/badge/AntV-691eff?logo=antdesign&labelColor=grey'></a>
+    </td>
+    <td>
+      <a href="https://echarts.apache.org/zh/index.html"><img src='https://img.shields.io/badge/ECharts-AA344D?logo=apacheecharts&labelColor=grey'></a>
+      <a href="https://github.com/wbkd/awesome-d3"><img src='https://img.shields.io/badge/D3-FC60A8?logo=awesomelists&labelColor=grey'></a>
+      <a href="https://awesome.cube.dev/?frameworks=react&languages=typescript"><img src='https://img.shields.io/badge/Awesome-FC60A8?logo=awesomelists&labelColor=grey'></a>
+    </td>
+  </tr>
+</table>
+
 # Get it started
 
 ```

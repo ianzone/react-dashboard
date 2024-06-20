@@ -1,9 +1,9 @@
 import { Flex, Segmented } from 'antd';
 import { useState } from 'react';
 
-interface SelectorProps {
+type SelectorProps = {
   options: Record<string, JSX.Element>;
-}
+};
 
 export function Selector(props: SelectorProps) {
   const { options } = props;

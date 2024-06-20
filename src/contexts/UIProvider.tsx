@@ -43,6 +43,7 @@ export function UIProvider({ children }: { children: ReactNode }) {
                 // colorPrimary: '#0053bc',
                 // borderRadius: 14,
               },
+              components: {},
             }}
           >
             <App

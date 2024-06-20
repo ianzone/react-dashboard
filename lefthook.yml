@@ -24,12 +24,12 @@ pre-commit:
       run: pnpm tsc --noEmit
     stylelint:
       priority: 3
-      glob: "*.{css,scss}"
+      glob: "*.{css}"
       run: pnpm stylelint --fix {staged_files}
     biome:
       priority: 4
-      glob: "*.{ts,tsx,js,jsx,json,jsonc,css}"
-      run: pnpm biome check --fix {staged_files}
+      glob: "*.{ts,tsx,js,jsx,json,jsonc}"
+      run: pnpm biome check --fix {staged_files} --reporter summary
     test:
       priority: 5
       glob: "*.{test.ts,test.tsx,spec.ts,spec.tsx}"

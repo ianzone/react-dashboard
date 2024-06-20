@@ -1,3 +1,5 @@
+import { Card } from 'src/components';
+
 export function Account() {
-  return <div>Account</div>;
+  return <Card>Account</Card>;
 }

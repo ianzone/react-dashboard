@@ -1,0 +1,9 @@
+.calendar {
+  height: 100%;
+  :global(.ant-picker-cell) {
+    padding: 0 !important;
+  }
+  :global(.ant-picker-content) {
+    height: unset !important;
+  }
+}
