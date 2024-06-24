@@ -10,7 +10,7 @@ export const Route = createRootRoute({
         display: 'flex',
         placeContent: 'center',
         placeItems: 'center',
-        height: '100vh',
+        height: '100%',
       }}
     >
       <Outlet />

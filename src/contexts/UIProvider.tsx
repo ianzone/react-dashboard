@@ -47,7 +47,8 @@ export function UIProvider({ children }: { children: ReactNode }) {
             }}
           >
             <App
-            // https://ant-design.antgroup.com/components/app-cn
+              // https://ant-design.antgroup.com/components/app-cn
+              style={{ height: '100%' }}
             >
               {children}
             </App>
