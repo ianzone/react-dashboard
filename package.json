@@ -1,5 +1,5 @@
 {
-  "name": "react-spa",
+  "name": "react-dashboard",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,8 +18,8 @@
     "@ant-design/charts": "^2.1.1",
     "@ant-design/cssinjs": "^1.21.0",
     "@ant-design/icons": "^5.3.7",
-    "@tanstack/react-query": "^5.45.1",
-    "@tanstack/react-query-devtools": "^5.45.1",
+    "@tanstack/react-query": "^5.47.0",
+    "@tanstack/react-query-devtools": "^5.47.0",
     "@tanstack/react-router": "^1.40.0",
     "@tanstack/router-devtools": "^1.40.0",
     "antd": "^5.18.3",
