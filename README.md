@@ -110,3 +110,14 @@ pnpm run dev
 # TODO
 
 replace stylelint with biome when css support is done. https://github.com/biomejs/biome/issues/2409
+
+# Examples
+
+https://mui.com/store/collections/free-react-dashboard/
+https://github.com/marmelab/react-admin
+https://ui.shadcn.com/examples/dashboard
+https://github.com/dataease/dataease
+https://github.com/hzzly/credit-bi-react
+https://blog.fit2cloud.com/?p=294879e7-4742-4774-866e-5c7673ff7a38
+
+https://github.com/react-grid-layout/react-grid-layout

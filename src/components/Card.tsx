@@ -1,7 +1,18 @@
-import { Card as AntCard, type CardProps } from 'antd';
+import { Card as AntCard, type GetProps, type GetRef } from 'antd';
+import { type Ref, forwardRef } from 'react';
 
-export function Card(props: CardProps) {
-  return <AntCard style={{ height: '100%' }} styles={{ body: { height: '100%' } }} {...props} />;
-}
+type CardPropsType = GetProps<typeof AntCard>;
+type CardRefType = GetRef<typeof AntCard>;
+
+export const Card = forwardRef((props: CardPropsType, ref: Ref<CardRefType>) => {
+  return (
+    <AntCard
+      style={{ height: '100%' }}
+      styles={{ body: { height: '100%' } }}
+      {...props}
+      ref={ref}
+    />
+  );
+});
 
 export const { Meta: CardMeta, Grid: CardGrid } = AntCard;

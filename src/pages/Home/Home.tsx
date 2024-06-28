@@ -1,29 +1,15 @@
 import { Column, RadialBar, Scatter } from '@ant-design/charts';
+import { useSize } from 'ahooks';
 import { Calendar } from 'antd';
+import { useRef } from 'react';
 import { Card, Grid, Item } from 'src/components';
 import styles from './styles.module.css';
 
-const config = {
-  theme: 'classicDark',
-  data: {
-    type: 'fetch',
-    value: 'https://gw.alipayobjects.com/os/antfincdn/iPY8JFnxdb/dodge-padding.json',
-  },
-  xField: '月份',
-  yField: '月均降雨量',
-  colorField: 'name',
-  group: true,
-  style: {
-    // 矩形四个方向的内边距
-    inset: 5,
-    // 矩形单个方向的内边距
-    // insetLeft:5,
-    // insetRight:20,
-    // insetBottom:10
-    // insetTop:10
-  },
-};
 export function Home() {
+  // https://github.com/ant-design/ant-design-charts/issues/2568
+  const colChartRef = useRef(null);
+  const colChartSize = useSize(colChartRef);
+
   return (
     <Grid rows={6} cols={4} gap='1.2rem'>
       <Item coord={[1, 1]}>
@@ -55,8 +41,24 @@ export function Home() {
         </Card>
       </Item>
       <Item coord={[2, 1]} rows={3} cols={2}>
-        <Card>
-          <Column {...config} />
+        <Card ref={colChartRef}>
+          <Column
+            {...{
+              theme: 'classicDark',
+              data: {
+                type: 'fetch',
+                value: 'https://gw.alipayobjects.com/os/antfincdn/iPY8JFnxdb/dodge-padding.json',
+              },
+              height: colChartSize && colChartSize.height - 48,
+              xField: '月份',
+              yField: '月均降雨量',
+              colorField: 'name',
+              group: true,
+              style: {
+                inset: 5,
+              },
+            }}
+          />
         </Card>
       </Item>
       <Item coord={[2, 4]} rows={2}>
