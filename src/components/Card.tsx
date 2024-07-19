@@ -5,11 +5,12 @@ type CardPropsType = GetProps<typeof AntCard>;
 type CardRefType = GetRef<typeof AntCard>;
 
 export const Card = forwardRef((props: CardPropsType, ref: Ref<CardRefType>) => {
+  const { style, ...rest } = props;
   return (
     <AntCard
-      style={{ height: '100%' }}
+      style={{ height: '100%', width: '100%', ...style }}
       styles={{ body: { height: '100%' } }}
-      {...props}
+      {...rest}
       ref={ref}
     />
   );

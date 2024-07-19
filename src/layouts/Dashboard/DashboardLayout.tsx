@@ -1,6 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import { Layout } from 'antd';
-const { Content } = Layout;
+import { Content, Layout } from 'src/components';
 import { Header } from './Header/Header';
 import { Sider } from './Sider/Sider';
 
@@ -9,7 +8,7 @@ export function DashboardLayout() {
   //   token: { colorBgContainer, borderRadiusLG },
   // } = theme.useToken();
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout>
       <Sider />
       <Layout>
         <Header />

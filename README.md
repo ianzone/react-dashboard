@@ -49,7 +49,7 @@
     <td>Components</td>
     <td>
       <a href="https://react.dev/learn"><img src='https://img.shields.io/badge/React-149eca?logo=React&labelColor=grey'></a>
-      <a href="https://ant-design.gitee.io/components/overview-cn/?theme=dark"><img src='https://img.shields.io/badge/AntDesign-blue?logo=antdesign&labelColor=grey'></a>
+      <a href="https://ant-design.antgroup.com/docs/react/introduce-cn"><img src='https://img.shields.io/badge/Ant_Design-blue?logo=antdesign&labelColor=grey'></a>
       <a href="https://tailwindcss.com/docs/guides/vite"><img src='https://img.shields.io/badge/tailwindcss-06B6D4?logo=tailwindcss&labelColor=grey'></a>
       <a href="https://tanstack.com/query/latest/docs/framework/react/overview/"><img src='https://img.shields.io/badge/TanstackQuery-FF4154?logo=reactquery&labelColor=grey'></a>
       <a href="https://tanstack.com/router/latest/docs/framework/react/overview"><img src='https://img.shields.io/badge/TanstackRouter-green?logo=reactquery&labelColor=grey'></a>
