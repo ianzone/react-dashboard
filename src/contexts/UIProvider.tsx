@@ -18,6 +18,26 @@ type UIContextType = {
 const UIContext = createContext<UIContextType | null>(null);
 UIContext.displayName = 'UIContext';
 
+function AppWrapper({ children }: { children: ReactNode }) {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+  return (
+    <App
+      // https://ant-design.antgroup.com/components/app-cn
+      style={{
+        height: '100%',
+        display: 'flex',
+        placeContent: 'center',
+        placeItems: 'center',
+        background: colorBgContainer,
+      }}
+    >
+      {children}
+    </App>
+  );
+}
+
 export function UIProvider({ children }: { children: ReactNode }) {
   const { displayTheme, themeMode, setThemeMode } = useTheme();
 
@@ -46,12 +66,7 @@ export function UIProvider({ children }: { children: ReactNode }) {
               components: {},
             }}
           >
-            <App
-              // https://ant-design.antgroup.com/components/app-cn
-              style={{ height: '100%' }}
-            >
-              {children}
-            </App>
+            <AppWrapper>{children}</AppWrapper>
           </ConfigProvider>
         </StyleProvider>
       </IconContext.Provider>
