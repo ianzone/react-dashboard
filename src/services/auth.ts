@@ -2,11 +2,11 @@ import { mock } from './mock';
 
 export async function isAuthenticated() {
   if (localStorage.getItem('isAuthenticated') === 'true') {
-    return;
+    return true;
   }
   await mock.call();
   await mock.call();
-  throw new Error('Unauthorized');
+  return false;
 }
 
 type SignInType = {
