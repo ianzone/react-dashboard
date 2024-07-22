@@ -16,5 +16,5 @@ export const Route = createFileRoute('/_dashboard')({
     }
   },
   component: DashboardLayout,
-  pendingComponent: () => <RingLoader />,
+  pendingComponent: () => <RingLoader color='LimeGreen ' />,
 });
