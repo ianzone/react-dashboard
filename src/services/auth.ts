@@ -6,6 +6,7 @@ export async function isAuthenticated() {
   }
   await mock.call();
   await mock.call();
+  await mock.call();
   return false;
 }
 
