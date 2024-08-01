@@ -1,18 +1,12 @@
 import { StyleProvider } from '@ant-design/cssinjs';
 import { App, ConfigProvider, theme } from 'antd';
-import {
-	type Dispatch,
-	type ReactNode,
-	type SetStateAction,
-	createContext,
-	useContext,
-} from 'react';
+import { type ReactNode, createContext, useContext } from 'react';
 import { IconContext } from 'react-icons';
 import { type ThemeModeType, useTheme } from 'src/hooks';
 
 type UIContextType = {
 	themeMode: ThemeModeType;
-	setThemeMode: Dispatch<SetStateAction<ThemeModeType>>;
+	setThemeMode: (themeMode: ThemeModeType) => void;
 };
 
 const UIContext = createContext<UIContextType | null>(null);

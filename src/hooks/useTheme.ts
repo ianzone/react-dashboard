@@ -29,7 +29,15 @@ function getTheme() {
 export type ThemeModeType = 'light' | 'dark' | 'system';
 
 export function useTheme() {
-	const [themeMode, setThemeMode] = useState<ThemeModeType>('system');
+	const [themeMode, setThemeMode] = useState<ThemeModeType>(() => {
+		const preferredThemeMode = localStorage.getItem('themeMode') as ThemeModeType | null;
+		return preferredThemeMode ? preferredThemeMode : 'system';
+	});
+
+	const setThemeModeWithLocalStorage = (themeMode: ThemeModeType) => {
+		localStorage.setItem('themeMode', themeMode);
+		setThemeMode(themeMode);
+	};
 
 	const currentTheme = getTheme();
 
@@ -38,6 +46,6 @@ export function useTheme() {
 	return {
 		theme,
 		themeMode,
-		setThemeMode,
+		setThemeMode: setThemeModeWithLocalStorage,
 	};
 }
