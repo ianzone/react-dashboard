@@ -8,11 +8,11 @@ import {
 	useContext,
 } from 'react';
 import { IconContext } from 'react-icons';
-import { type ThemeType, useTheme } from 'src/hooks';
+import { type ThemeModeType, useTheme } from 'src/hooks';
 
 type UIContextType = {
-	themeMode: ThemeType;
-	setThemeMode: Dispatch<SetStateAction<ThemeType>>;
+	themeMode: ThemeModeType;
+	setThemeMode: Dispatch<SetStateAction<ThemeModeType>>;
 };
 
 const UIContext = createContext<UIContextType | null>(null);
@@ -39,7 +39,7 @@ function AppWrapper({ children }: { children: ReactNode }) {
 }
 
 export function UIProvider({ children }: { children: ReactNode }) {
-	const { displayTheme, themeMode, setThemeMode } = useTheme();
+	const { theme: currentTheme, themeMode, setThemeMode } = useTheme();
 
 	return (
 		<UIContext.Provider
@@ -58,7 +58,7 @@ export function UIProvider({ children }: { children: ReactNode }) {
 				>
 					<ConfigProvider
 						theme={{
-							algorithm: displayTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
+							algorithm: currentTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
 							token: {
 								// colorPrimary: '#0053bc',
 								// borderRadius: 14,

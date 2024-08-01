@@ -2,42 +2,42 @@ import { useEffect, useState } from 'react';
 
 const matchMedia = window.matchMedia('(prefers-color-scheme: dark)');
 
-function useSystemTheme() {
-  const [themeMode, setThemeMode] = useState<'light' | 'dark'>(() => {
-    return matchMedia.matches ? 'dark' : 'light';
-  });
+function getTheme() {
+	const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+		return matchMedia.matches ? 'dark' : 'light';
+	});
 
-  useEffect(() => {
-    // 监听系统颜色切换
-    const listener = (event: { matches: boolean }) => {
-      if (event.matches) {
-        setThemeMode('dark');
-      } else {
-        setThemeMode('light');
-      }
-    };
+	useEffect(() => {
+		// 监听系统颜色切换
+		const listener = (event: { matches: boolean }) => {
+			if (event.matches) {
+				setTheme('dark');
+			} else {
+				setTheme('light');
+			}
+		};
 
-    matchMedia.addEventListener('change', listener);
+		matchMedia.addEventListener('change', listener);
 
-    return () => {
-      matchMedia.removeEventListener('change', listener);
-    };
-  }, []);
-  return themeMode;
+		return () => {
+			matchMedia.removeEventListener('change', listener);
+		};
+	}, []);
+	return theme;
 }
 
-export type ThemeType = 'light' | 'dark' | 'system';
+export type ThemeModeType = 'light' | 'dark' | 'system';
 
 export function useTheme() {
-  const [themeMode, setThemeMode] = useState<ThemeType>('system');
+	const [themeMode, setThemeMode] = useState<ThemeModeType>('system');
 
-  const systemTheme = useSystemTheme();
+	const currentTheme = getTheme();
 
-  const displayTheme = themeMode === 'system' ? systemTheme : themeMode;
+	const theme = themeMode === 'system' ? currentTheme : themeMode;
 
-  return {
-    displayTheme,
-    themeMode,
-    setThemeMode,
-  };
+	return {
+		theme,
+		themeMode,
+		setThemeMode,
+	};
 }
