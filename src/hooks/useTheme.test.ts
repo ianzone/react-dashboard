@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest';
 import { useTheme } from './useTheme';
 
 describe('useTheme', () => {
-	test('themeMode init', () => {
+	test('themeMode init is system', () => {
 		const { result } = renderHook(useTheme);
 		expect(result.current.themeMode).toBe('system');
 	});
