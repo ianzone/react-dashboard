@@ -32,5 +32,5 @@ pre-commit:
       stage_fixed: true
     test:
       priority: 5
-      glob: "*.{test.ts,test.tsx,spec.ts,spec.tsx}"
-      run: na vitest --run
+      glob: "*.{ts,tsx,js,jsx}"
+      run: na vitest related --run {staged_files}
