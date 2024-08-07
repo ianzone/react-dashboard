@@ -71,3 +71,21 @@ https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#n
 
 `beforeLoad` 执行完后组件才开始加载，加载完成之后才能开始渲染，这会导致取得数据之后过一会页面才会变化
 `loader` 的执行和组件的加载是并行的
+
+## Hooks
+
+### 路由器相关：useRouter, useRouterState, useRouteContext
+
+useRouter: 获取[路由器对象](https://tanstack.com/router/latest/docs/framework/react/api/router/RouterType)，较为底层，一般不用
+useRouterState: 获取[路由器状态](https://tanstack.com/router/latest/docs/framework/react/api/router/RouterStateType)
+useRouteContext: 获取当前[路由上下文](https://tanstack.com/router/latest/docs/framework/react/api/router/useRouteContextHook)
+
+### 匹配路由：useMatch, useMatches, useMatchRoute, useChildMatches, useParentMatches
+
+useMatch({ from: '/\_dashboard/account', shouldThrow: false })，如果 /\_dashboard/account 是当前路由的子路由，则返回匹配的路由，否则返回 {state:undefined}
+
+useMatches：获取所有匹配的路由，例如路径 /account 会匹配 1.根路由 \_\_root\_\_，2.布局路由 /\_dashboard，3.账户路由 /\_dashboard/account，但是不会匹配 /\_dashboard/
+
+useMatchRoute 用于匹配子路由的路径参数
+
+useChildMatches 和 useParentMatches 用于获取当前路由的子路由和父路由，但如果某个路由有 pendingComponent，则当前路由会从该路由开始算起，所以不靠谱
