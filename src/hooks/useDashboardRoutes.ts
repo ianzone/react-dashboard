@@ -6,12 +6,12 @@ export function useDashboardRoutes() {
   const { flatRoutes } = useRouter();
   const location = useLocation();
 
-  const items = useMemo(() => {
-    const routes = [];
+  const routes = useMemo(() => {
+    const items = [];
     for (const route of flatRoutes) {
       const staticData = route.options.staticData;
       if (staticData) {
-        routes.push({
+        items.push({
           order: staticData.order || 100,
           key: route.fullPath,
           label: staticData.label,
@@ -19,12 +19,12 @@ export function useDashboardRoutes() {
         });
       }
     }
-    routes.sort((a, b) => a.order - b.order);
-    return routes;
+    items.sort((a, b) => a.order - b.order);
+    return items;
   }, [flatRoutes]);
 
   return {
-    items,
+    routes,
     currentPath: location.pathname,
   };
 }
