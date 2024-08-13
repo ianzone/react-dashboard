@@ -28,18 +28,20 @@ function Platforms(props: {
     mac?: string;
     linux?: string;
     ios?: string;
+    harmony?: string;
     android?: string;
   };
 }) {
-  const { win, mac, linux, ios, android } = props.downloads;
+  const { win, mac, linux, ios, harmony, android } = props.downloads;
   return (
     <Space size='large'>
-      {win && <FigureLink href={win} src='/windows.svg' caption='Windows' />}
-      {mac && <FigureLink href={mac} src='/macos.svg' caption='macOS' />}
-      {linux && <FigureLink href={linux} src='/linux.svg' caption='Linux' />}
+      {win && <FigureLink href={win} src='/Windows.svg' caption='Windows' />}
+      {mac && <FigureLink href={mac} src='/macOS.svg' caption='macOS' />}
+      {linux && <FigureLink href={linux} src='/Linux.svg' caption='Linux' />}
 
-      {ios && <FigureLinkQR href={ios} src='/app_store.svg' caption='App Store' />}
-      {android && <FigureLinkQR href={android} src='/google_play.svg' caption='Google Play' />}
+      {ios && <FigureLinkQR href={ios} src='/AppStore.svg' caption='App Store' />}
+      {harmony && <FigureLinkQR href={harmony} src='/AppGallery.svg' caption='App Gallery' />}
+      {android && <FigureLinkQR href={android} src='/GooglePlay.svg' caption='Google Play' />}
     </Space>
   );
 }
@@ -50,6 +52,7 @@ export function Downloads() {
     mac: 'https://www.apple.com/macos/',
     linux: 'https://ubuntu.com/',
     ios: 'https://apps.apple.com/in/app/expo-go/id982107779',
+    harmony: 'https://appgallery.huawei.com/#/Featured',
     android: 'https://play.google.com/store/apps/details?id=host.exp.exponent',
   };
 
