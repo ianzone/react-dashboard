@@ -1,7 +1,7 @@
 import { useNavigate } from '@tanstack/react-router';
 import { Avatar, Dropdown, type MenuProps, Space, Typography } from 'antd';
 const { Text } = Typography;
-import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
+import { AiOutlineLogout, AiOutlineSetting, AiOutlineUser } from 'react-icons/ai';
 import { signOut } from 'src/services';
 
 export function Profile() {
@@ -11,6 +11,11 @@ export function Profile() {
       key: 'account',
       label: 'Account',
       icon: <AiOutlineUser />,
+    },
+    {
+      key: 'settings',
+      label: 'Settings',
+      icon: <AiOutlineSetting />,
     },
     {
       type: 'divider',

@@ -2,6 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 import { Link, useNavigate } from '@tanstack/react-router';
 import { Alert, Button, Checkbox, Flex, Form, Input } from 'antd';
 const { Item } = Form;
+import { InputIntlPhone } from 'antd-enhanced';
 import { signIn } from 'src/services';
 
 type FieldType = {
@@ -9,6 +10,8 @@ type FieldType = {
   otp: string;
   remember: boolean;
 };
+const TypedForm = Form<FieldType>;
+const TypedItem = TypedForm.Item<FieldType>;
 
 export function SignInPhone() {
   const navigate = useNavigate();
@@ -21,31 +24,37 @@ export function SignInPhone() {
   });
 
   return (
-    <Form
+    <TypedForm
       name='SignInPhone'
       layout='vertical'
       initialValues={{ remember: true }}
-      onFinish={mutate}
+      onFinish={(data) => {
+        console.log(data);
+      }}
       style={{ width: '100%' }}
     >
-      <Item<FieldType>
+      <TypedItem
         label='Phone'
         name='phone'
         rules={[{ required: true, type: 'string', message: 'Please input your phone!' }]}
       >
-        <Input />
-      </Item>
-      <Item<FieldType>
+        <InputIntlPhone
+          defaultRegion='CN'
+          allowClear
+          customRegions={[{ value: 'TW', emoji: '🌐' }]}
+        />
+      </TypedItem>
+      <TypedItem
         label='OTP code'
         name='otp'
         rules={[{ required: true, message: 'Please input your OTP code!' }]}
       >
-        <Input />
-      </Item>
+        <Input.OTP />
+      </TypedItem>
       <Flex justify='space-between'>
-        <Item<FieldType> name='remember' valuePropName='checked'>
+        <TypedItem name='remember' valuePropName='checked'>
           <Checkbox>Remember me</Checkbox>
-        </Item>
+        </TypedItem>
         <Item>
           <Link to='/forgotpass'>Forgot password?</Link>
         </Item>
@@ -56,6 +65,6 @@ export function SignInPhone() {
         </Button>
       </Item>
       {isError && <Alert message={error.message} type='error' showIcon closable />}
-    </Form>
+    </TypedForm>
   );
 }

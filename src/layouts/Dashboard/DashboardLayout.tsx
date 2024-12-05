@@ -1,17 +1,13 @@
 import { Outlet } from '@tanstack/react-router';
-import { Content, Layout } from 'src/components';
+import { Content, Layout } from '../Layout';
 import { Header } from './Header/Header';
 import { Sider } from './Sider/Sider';
 
 export function DashboardLayout() {
-  // const {
-  //   token: { colorBgContainer, borderRadiusLG },
-  // } = theme.useToken();
   return (
-    <Layout>
-      <Sider />
-      <Layout>
-        <Header />
+    <Layout
+      header={<Header />}
+      content={
         <Content
           style={{
             margin: '1.5rem',
@@ -23,7 +19,8 @@ export function DashboardLayout() {
         >
           <Outlet />
         </Content>
-      </Layout>
-    </Layout>
+      }
+      siderLeft={<Sider />}
+    />
   );
 }
