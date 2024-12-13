@@ -1,5 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import { Content, Layout } from '../Layout';
+import { Content, Layout } from 'antd-enhanced';
 import { Header } from './Header/Header';
 import { Sider } from './Sider/Sider';
 

@@ -6,7 +6,7 @@ export const Route = createFileRoute('/_dashboard/account')({
   component: Account,
   staticData: {
     order: 2,
-    label: 'Account',
+    label: '我的账号',
     icon: <AiOutlineUser />,
   },
 });

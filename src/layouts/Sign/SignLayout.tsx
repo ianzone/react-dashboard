@@ -1,8 +1,8 @@
 import { Outlet } from '@tanstack/react-router';
+import { Content, Footer, Layout } from 'antd-enhanced';
 import { getUrl } from 'src/assets';
 import { Box } from 'src/components';
 import { Figure } from 'src/components';
-import { Content, Footer, Layout } from '../Layout';
 
 export function SignLayout() {
   return (

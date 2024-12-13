@@ -13,6 +13,9 @@
 import { Route as rootRoute } from './routes/__root';
 import { Route as DashboardImport } from './routes/_dashboard';
 import { Route as DashboardAccountImport } from './routes/_dashboard/account';
+import { Route as DashboardCalendarImport } from './routes/_dashboard/calendar';
+import { Route as DashboardChatImport } from './routes/_dashboard/chat';
+import { Route as DashboardFilesImport } from './routes/_dashboard/files';
 import { Route as DashboardIndexImport } from './routes/_dashboard/index';
 import { Route as SignImport } from './routes/_sign';
 import { Route as SignForgotpassImport } from './routes/_sign/forgotpass';
@@ -55,6 +58,24 @@ const SignForgotpassRoute = SignForgotpassImport.update({
   getParentRoute: () => SignRoute,
 } as any);
 
+const DashboardFilesRoute = DashboardFilesImport.update({
+  id: '/files',
+  path: '/files',
+  getParentRoute: () => DashboardRoute,
+} as any);
+
+const DashboardChatRoute = DashboardChatImport.update({
+  id: '/chat',
+  path: '/chat',
+  getParentRoute: () => DashboardRoute,
+} as any);
+
+const DashboardCalendarRoute = DashboardCalendarImport.update({
+  id: '/calendar',
+  path: '/calendar',
+  getParentRoute: () => DashboardRoute,
+} as any);
+
 const DashboardAccountRoute = DashboardAccountImport.update({
   id: '/account',
   path: '/account',
@@ -84,6 +105,27 @@ declare module '@tanstack/react-router' {
       path: '/account';
       fullPath: '/account';
       preLoaderRoute: typeof DashboardAccountImport;
+      parentRoute: typeof DashboardImport;
+    };
+    '/_dashboard/calendar': {
+      id: '/_dashboard/calendar';
+      path: '/calendar';
+      fullPath: '/calendar';
+      preLoaderRoute: typeof DashboardCalendarImport;
+      parentRoute: typeof DashboardImport;
+    };
+    '/_dashboard/chat': {
+      id: '/_dashboard/chat';
+      path: '/chat';
+      fullPath: '/chat';
+      preLoaderRoute: typeof DashboardChatImport;
+      parentRoute: typeof DashboardImport;
+    };
+    '/_dashboard/files': {
+      id: '/_dashboard/files';
+      path: '/files';
+      fullPath: '/files';
+      preLoaderRoute: typeof DashboardFilesImport;
       parentRoute: typeof DashboardImport;
     };
     '/_sign/forgotpass': {
@@ -121,11 +163,17 @@ declare module '@tanstack/react-router' {
 
 interface DashboardRouteChildren {
   DashboardAccountRoute: typeof DashboardAccountRoute;
+  DashboardCalendarRoute: typeof DashboardCalendarRoute;
+  DashboardChatRoute: typeof DashboardChatRoute;
+  DashboardFilesRoute: typeof DashboardFilesRoute;
   DashboardIndexRoute: typeof DashboardIndexRoute;
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardAccountRoute: DashboardAccountRoute,
+  DashboardCalendarRoute: DashboardCalendarRoute,
+  DashboardChatRoute: DashboardChatRoute,
+  DashboardFilesRoute: DashboardFilesRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 };
 
@@ -148,6 +196,9 @@ const SignRouteWithChildren = SignRoute._addFileChildren(SignRouteChildren);
 export interface FileRoutesByFullPath {
   '': typeof SignRouteWithChildren;
   '/account': typeof DashboardAccountRoute;
+  '/calendar': typeof DashboardCalendarRoute;
+  '/chat': typeof DashboardChatRoute;
+  '/files': typeof DashboardFilesRoute;
   '/forgotpass': typeof SignForgotpassRoute;
   '/signin': typeof SignSigninRoute;
   '/signup': typeof SignSignupRoute;
@@ -157,6 +208,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '': typeof SignRouteWithChildren;
   '/account': typeof DashboardAccountRoute;
+  '/calendar': typeof DashboardCalendarRoute;
+  '/chat': typeof DashboardChatRoute;
+  '/files': typeof DashboardFilesRoute;
   '/forgotpass': typeof SignForgotpassRoute;
   '/signin': typeof SignSigninRoute;
   '/signup': typeof SignSignupRoute;
@@ -168,6 +222,9 @@ export interface FileRoutesById {
   '/_dashboard': typeof DashboardRouteWithChildren;
   '/_sign': typeof SignRouteWithChildren;
   '/_dashboard/account': typeof DashboardAccountRoute;
+  '/_dashboard/calendar': typeof DashboardCalendarRoute;
+  '/_dashboard/chat': typeof DashboardChatRoute;
+  '/_dashboard/files': typeof DashboardFilesRoute;
   '/_sign/forgotpass': typeof SignForgotpassRoute;
   '/_sign/signin': typeof SignSigninRoute;
   '/_sign/signup': typeof SignSignupRoute;
@@ -176,14 +233,35 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '' | '/account' | '/forgotpass' | '/signin' | '/signup' | '/';
+  fullPaths:
+    | ''
+    | '/account'
+    | '/calendar'
+    | '/chat'
+    | '/files'
+    | '/forgotpass'
+    | '/signin'
+    | '/signup'
+    | '/';
   fileRoutesByTo: FileRoutesByTo;
-  to: '' | '/account' | '/forgotpass' | '/signin' | '/signup' | '/';
+  to:
+    | ''
+    | '/account'
+    | '/calendar'
+    | '/chat'
+    | '/files'
+    | '/forgotpass'
+    | '/signin'
+    | '/signup'
+    | '/';
   id:
     | '__root__'
     | '/_dashboard'
     | '/_sign'
     | '/_dashboard/account'
+    | '/_dashboard/calendar'
+    | '/_dashboard/chat'
+    | '/_dashboard/files'
     | '/_sign/forgotpass'
     | '/_sign/signin'
     | '/_sign/signup'
@@ -219,6 +297,9 @@ export const routeTree = rootRoute
       "filePath": "_dashboard.tsx",
       "children": [
         "/_dashboard/account",
+        "/_dashboard/calendar",
+        "/_dashboard/chat",
+        "/_dashboard/files",
         "/_dashboard/"
       ]
     },
@@ -232,6 +313,18 @@ export const routeTree = rootRoute
     },
     "/_dashboard/account": {
       "filePath": "_dashboard/account.tsx",
+      "parent": "/_dashboard"
+    },
+    "/_dashboard/calendar": {
+      "filePath": "_dashboard/calendar.tsx",
+      "parent": "/_dashboard"
+    },
+    "/_dashboard/chat": {
+      "filePath": "_dashboard/chat.tsx",
+      "parent": "/_dashboard"
+    },
+    "/_dashboard/files": {
+      "filePath": "_dashboard/files.tsx",
       "parent": "/_dashboard"
     },
     "/_sign/forgotpass": {
