@@ -10,163 +10,163 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root';
-import { Route as DashboardImport } from './routes/_dashboard';
-import { Route as DashboardAccountImport } from './routes/_dashboard/account';
-import { Route as DashboardCalendarImport } from './routes/_dashboard/calendar';
-import { Route as DashboardChatImport } from './routes/_dashboard/chat';
-import { Route as DashboardFilesImport } from './routes/_dashboard/files';
-import { Route as DashboardIndexImport } from './routes/_dashboard/index';
-import { Route as SignImport } from './routes/_sign';
-import { Route as SignForgotpassImport } from './routes/_sign/forgotpass';
-import { Route as SignSigninImport } from './routes/_sign/signin';
-import { Route as SignSignupImport } from './routes/_sign/signup';
+import { Route as rootRoute } from './routes/__root'
+import { Route as SignImport } from './routes/_sign'
+import { Route as DashboardImport } from './routes/_dashboard'
+import { Route as DashboardIndexImport } from './routes/_dashboard/index'
+import { Route as SignSignupImport } from './routes/_sign/signup'
+import { Route as SignSigninImport } from './routes/_sign/signin'
+import { Route as SignForgotpassImport } from './routes/_sign/forgotpass'
+import { Route as DashboardFilesImport } from './routes/_dashboard/files'
+import { Route as DashboardChatImport } from './routes/_dashboard/chat'
+import { Route as DashboardCalendarImport } from './routes/_dashboard/calendar'
+import { Route as DashboardAccountImport } from './routes/_dashboard/account'
 
 // Create/Update Routes
 
 const SignRoute = SignImport.update({
   id: '/_sign',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const DashboardRoute = DashboardImport.update({
   id: '/_dashboard',
   getParentRoute: () => rootRoute,
-} as any);
+} as any)
 
 const DashboardIndexRoute = DashboardIndexImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DashboardRoute,
-} as any);
+} as any)
 
 const SignSignupRoute = SignSignupImport.update({
   id: '/signup',
   path: '/signup',
   getParentRoute: () => SignRoute,
-} as any);
+} as any)
 
 const SignSigninRoute = SignSigninImport.update({
   id: '/signin',
   path: '/signin',
   getParentRoute: () => SignRoute,
-} as any);
+} as any)
 
 const SignForgotpassRoute = SignForgotpassImport.update({
   id: '/forgotpass',
   path: '/forgotpass',
   getParentRoute: () => SignRoute,
-} as any);
+} as any)
 
 const DashboardFilesRoute = DashboardFilesImport.update({
   id: '/files',
   path: '/files',
   getParentRoute: () => DashboardRoute,
-} as any);
+} as any)
 
 const DashboardChatRoute = DashboardChatImport.update({
   id: '/chat',
   path: '/chat',
   getParentRoute: () => DashboardRoute,
-} as any);
+} as any)
 
 const DashboardCalendarRoute = DashboardCalendarImport.update({
   id: '/calendar',
   path: '/calendar',
   getParentRoute: () => DashboardRoute,
-} as any);
+} as any)
 
 const DashboardAccountRoute = DashboardAccountImport.update({
   id: '/account',
   path: '/account',
   getParentRoute: () => DashboardRoute,
-} as any);
+} as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
     '/_dashboard': {
-      id: '/_dashboard';
-      path: '';
-      fullPath: '';
-      preLoaderRoute: typeof DashboardImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/_dashboard'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof DashboardImport
+      parentRoute: typeof rootRoute
+    }
     '/_sign': {
-      id: '/_sign';
-      path: '';
-      fullPath: '';
-      preLoaderRoute: typeof SignImport;
-      parentRoute: typeof rootRoute;
-    };
+      id: '/_sign'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof SignImport
+      parentRoute: typeof rootRoute
+    }
     '/_dashboard/account': {
-      id: '/_dashboard/account';
-      path: '/account';
-      fullPath: '/account';
-      preLoaderRoute: typeof DashboardAccountImport;
-      parentRoute: typeof DashboardImport;
-    };
+      id: '/_dashboard/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof DashboardAccountImport
+      parentRoute: typeof DashboardImport
+    }
     '/_dashboard/calendar': {
-      id: '/_dashboard/calendar';
-      path: '/calendar';
-      fullPath: '/calendar';
-      preLoaderRoute: typeof DashboardCalendarImport;
-      parentRoute: typeof DashboardImport;
-    };
+      id: '/_dashboard/calendar'
+      path: '/calendar'
+      fullPath: '/calendar'
+      preLoaderRoute: typeof DashboardCalendarImport
+      parentRoute: typeof DashboardImport
+    }
     '/_dashboard/chat': {
-      id: '/_dashboard/chat';
-      path: '/chat';
-      fullPath: '/chat';
-      preLoaderRoute: typeof DashboardChatImport;
-      parentRoute: typeof DashboardImport;
-    };
+      id: '/_dashboard/chat'
+      path: '/chat'
+      fullPath: '/chat'
+      preLoaderRoute: typeof DashboardChatImport
+      parentRoute: typeof DashboardImport
+    }
     '/_dashboard/files': {
-      id: '/_dashboard/files';
-      path: '/files';
-      fullPath: '/files';
-      preLoaderRoute: typeof DashboardFilesImport;
-      parentRoute: typeof DashboardImport;
-    };
+      id: '/_dashboard/files'
+      path: '/files'
+      fullPath: '/files'
+      preLoaderRoute: typeof DashboardFilesImport
+      parentRoute: typeof DashboardImport
+    }
     '/_sign/forgotpass': {
-      id: '/_sign/forgotpass';
-      path: '/forgotpass';
-      fullPath: '/forgotpass';
-      preLoaderRoute: typeof SignForgotpassImport;
-      parentRoute: typeof SignImport;
-    };
+      id: '/_sign/forgotpass'
+      path: '/forgotpass'
+      fullPath: '/forgotpass'
+      preLoaderRoute: typeof SignForgotpassImport
+      parentRoute: typeof SignImport
+    }
     '/_sign/signin': {
-      id: '/_sign/signin';
-      path: '/signin';
-      fullPath: '/signin';
-      preLoaderRoute: typeof SignSigninImport;
-      parentRoute: typeof SignImport;
-    };
+      id: '/_sign/signin'
+      path: '/signin'
+      fullPath: '/signin'
+      preLoaderRoute: typeof SignSigninImport
+      parentRoute: typeof SignImport
+    }
     '/_sign/signup': {
-      id: '/_sign/signup';
-      path: '/signup';
-      fullPath: '/signup';
-      preLoaderRoute: typeof SignSignupImport;
-      parentRoute: typeof SignImport;
-    };
+      id: '/_sign/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignSignupImport
+      parentRoute: typeof SignImport
+    }
     '/_dashboard/': {
-      id: '/_dashboard/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof DashboardIndexImport;
-      parentRoute: typeof DashboardImport;
-    };
+      id: '/_dashboard/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof DashboardIndexImport
+      parentRoute: typeof DashboardImport
+    }
   }
 }
 
 // Create and export the route tree
 
 interface DashboardRouteChildren {
-  DashboardAccountRoute: typeof DashboardAccountRoute;
-  DashboardCalendarRoute: typeof DashboardCalendarRoute;
-  DashboardChatRoute: typeof DashboardChatRoute;
-  DashboardFilesRoute: typeof DashboardFilesRoute;
-  DashboardIndexRoute: typeof DashboardIndexRoute;
+  DashboardAccountRoute: typeof DashboardAccountRoute
+  DashboardCalendarRoute: typeof DashboardCalendarRoute
+  DashboardChatRoute: typeof DashboardChatRoute
+  DashboardFilesRoute: typeof DashboardFilesRoute
+  DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
@@ -175,64 +175,66 @@ const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardChatRoute: DashboardChatRoute,
   DashboardFilesRoute: DashboardFilesRoute,
   DashboardIndexRoute: DashboardIndexRoute,
-};
+}
 
-const DashboardRouteWithChildren = DashboardRoute._addFileChildren(DashboardRouteChildren);
+const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
+  DashboardRouteChildren,
+)
 
 interface SignRouteChildren {
-  SignForgotpassRoute: typeof SignForgotpassRoute;
-  SignSigninRoute: typeof SignSigninRoute;
-  SignSignupRoute: typeof SignSignupRoute;
+  SignForgotpassRoute: typeof SignForgotpassRoute
+  SignSigninRoute: typeof SignSigninRoute
+  SignSignupRoute: typeof SignSignupRoute
 }
 
 const SignRouteChildren: SignRouteChildren = {
   SignForgotpassRoute: SignForgotpassRoute,
   SignSigninRoute: SignSigninRoute,
   SignSignupRoute: SignSignupRoute,
-};
+}
 
-const SignRouteWithChildren = SignRoute._addFileChildren(SignRouteChildren);
+const SignRouteWithChildren = SignRoute._addFileChildren(SignRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '': typeof SignRouteWithChildren;
-  '/account': typeof DashboardAccountRoute;
-  '/calendar': typeof DashboardCalendarRoute;
-  '/chat': typeof DashboardChatRoute;
-  '/files': typeof DashboardFilesRoute;
-  '/forgotpass': typeof SignForgotpassRoute;
-  '/signin': typeof SignSigninRoute;
-  '/signup': typeof SignSignupRoute;
-  '/': typeof DashboardIndexRoute;
+  '': typeof SignRouteWithChildren
+  '/account': typeof DashboardAccountRoute
+  '/calendar': typeof DashboardCalendarRoute
+  '/chat': typeof DashboardChatRoute
+  '/files': typeof DashboardFilesRoute
+  '/forgotpass': typeof SignForgotpassRoute
+  '/signin': typeof SignSigninRoute
+  '/signup': typeof SignSignupRoute
+  '/': typeof DashboardIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '': typeof SignRouteWithChildren;
-  '/account': typeof DashboardAccountRoute;
-  '/calendar': typeof DashboardCalendarRoute;
-  '/chat': typeof DashboardChatRoute;
-  '/files': typeof DashboardFilesRoute;
-  '/forgotpass': typeof SignForgotpassRoute;
-  '/signin': typeof SignSigninRoute;
-  '/signup': typeof SignSignupRoute;
-  '/': typeof DashboardIndexRoute;
+  '': typeof SignRouteWithChildren
+  '/account': typeof DashboardAccountRoute
+  '/calendar': typeof DashboardCalendarRoute
+  '/chat': typeof DashboardChatRoute
+  '/files': typeof DashboardFilesRoute
+  '/forgotpass': typeof SignForgotpassRoute
+  '/signin': typeof SignSigninRoute
+  '/signup': typeof SignSignupRoute
+  '/': typeof DashboardIndexRoute
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  '/_dashboard': typeof DashboardRouteWithChildren;
-  '/_sign': typeof SignRouteWithChildren;
-  '/_dashboard/account': typeof DashboardAccountRoute;
-  '/_dashboard/calendar': typeof DashboardCalendarRoute;
-  '/_dashboard/chat': typeof DashboardChatRoute;
-  '/_dashboard/files': typeof DashboardFilesRoute;
-  '/_sign/forgotpass': typeof SignForgotpassRoute;
-  '/_sign/signin': typeof SignSigninRoute;
-  '/_sign/signup': typeof SignSignupRoute;
-  '/_dashboard/': typeof DashboardIndexRoute;
+  __root__: typeof rootRoute
+  '/_dashboard': typeof DashboardRouteWithChildren
+  '/_sign': typeof SignRouteWithChildren
+  '/_dashboard/account': typeof DashboardAccountRoute
+  '/_dashboard/calendar': typeof DashboardCalendarRoute
+  '/_dashboard/chat': typeof DashboardChatRoute
+  '/_dashboard/files': typeof DashboardFilesRoute
+  '/_sign/forgotpass': typeof SignForgotpassRoute
+  '/_sign/signin': typeof SignSigninRoute
+  '/_sign/signup': typeof SignSignupRoute
+  '/_dashboard/': typeof DashboardIndexRoute
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
+  fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | ''
     | '/account'
@@ -242,8 +244,8 @@ export interface FileRouteTypes {
     | '/forgotpass'
     | '/signin'
     | '/signup'
-    | '/';
-  fileRoutesByTo: FileRoutesByTo;
+    | '/'
+  fileRoutesByTo: FileRoutesByTo
   to:
     | ''
     | '/account'
@@ -253,7 +255,7 @@ export interface FileRouteTypes {
     | '/forgotpass'
     | '/signin'
     | '/signup'
-    | '/';
+    | '/'
   id:
     | '__root__'
     | '/_dashboard'
@@ -265,23 +267,23 @@ export interface FileRouteTypes {
     | '/_sign/forgotpass'
     | '/_sign/signin'
     | '/_sign/signup'
-    | '/_dashboard/';
-  fileRoutesById: FileRoutesById;
+    | '/_dashboard/'
+  fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  DashboardRoute: typeof DashboardRouteWithChildren;
-  SignRoute: typeof SignRouteWithChildren;
+  DashboardRoute: typeof DashboardRouteWithChildren
+  SignRoute: typeof SignRouteWithChildren
 }
 
 const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRouteWithChildren,
   SignRoute: SignRouteWithChildren,
-};
+}
 
 export const routeTree = rootRoute
   ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+  ._addFileTypes<FileRouteTypes>()
 
 /* ROUTE_MANIFEST_START
 {
