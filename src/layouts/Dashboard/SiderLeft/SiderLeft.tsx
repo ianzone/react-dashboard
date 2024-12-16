@@ -1,20 +1,20 @@
-import { Layout } from 'antd';
+import { Sider } from 'antd-enhanced';
 import { useState } from 'react';
 import { getUrl } from 'src/assets';
 import { Figure } from 'src/components';
-import { MenuList } from './MenuList';
+import { RoutesMenu } from './RoutesMenu';
 
-export function Sider() {
+export function SiderLeft() {
   const [collapsed, setCollapsed] = useState(false);
   return (
-    <Layout.Sider
+    <Sider
       collapsible
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       theme='light'
     >
       <Figure style={{ height: '64px', padding: '10px' }} src={getUrl('logo.svg')} />
-      <MenuList />
-    </Layout.Sider>
+      <RoutesMenu />
+    </Sider>
   );
 }

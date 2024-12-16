@@ -1,11 +1,12 @@
 import { Outlet } from '@tanstack/react-router';
 import { Content, Layout } from 'antd-enhanced';
-import { Header } from './Header/Header';
-import { Sider } from './Sider/Sider';
+import { Header } from './Header';
+import { SiderLeft } from './SiderLeft';
 
 export function DashboardLayout() {
   return (
     <Layout
+      siderLeft={<SiderLeft />}
       header={<Header />}
       content={
         <Content
@@ -20,7 +21,6 @@ export function DashboardLayout() {
           <Outlet />
         </Content>
       }
-      siderLeft={<Sider />}
     />
   );
 }
