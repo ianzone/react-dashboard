@@ -1,0 +1,11 @@
+{
+  "configurations": [
+    {
+      "type": "msedge",
+      "name": "Launch",
+      "request": "launch",
+      "url": "http://localhost:5173",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}

@@ -51,6 +51,8 @@ export function UIProvider({ children }: { children: ReactNode }) {
         >
           <ConfigProvider
             theme={{
+              cssVar: true,
+              hashed: false, // https://ant-design.antgroup.com/docs/react/css-variables-cn#%E5%85%B3%E9%97%AD-hash
               algorithm: currentTheme === 'dark' ? theme.darkAlgorithm : theme.defaultAlgorithm,
               token: {
                 // colorPrimary: '#0053bc',

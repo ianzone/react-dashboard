@@ -8,6 +8,10 @@ export default mergeConfig(
     test: {
       globals: true,
       environment: 'happy-dom',
+      coverage: {
+        include: ['src/hooks', 'src/utils', 'src/services'],
+        exclude: ['**/index.ts'],
+      },
     },
   }),
 );

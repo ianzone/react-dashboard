@@ -1,46 +1,47 @@
-import { Column, RadialBar, Scatter } from '@ant-design/charts';
-import { useSize } from 'ahooks';
-import { Calendar } from 'antd';
-import { useRef } from 'react';
-import { Card, Grid, Item } from 'src/components';
-import styles from './styles.module.css';
+import { Grid, GridCell } from 'antd-enhanced';
+// import { Column, RadialBar, Scatter } from '@ant-design/charts';
+// import { useSize } from 'ahooks';
+// import { Calendar } from 'antd';
+// import { useRef } from 'react';
+import { Card } from 'src/components';
+// import styles from './styles.module.css';
 
 export function Home() {
   // https://github.com/ant-design/ant-design-charts/issues/2568
-  const colChartRef = useRef(null);
-  const colChartSize = useSize(colChartRef);
+  // const colChartRef = useRef(null);
+  // const colChartSize = useSize(colChartRef);
 
   return (
     <Grid rows={6} cols={4} gap='1.2rem'>
-      <Item coord={[1, 1]}>
+      <GridCell rowIndex={0} colIndex={0}>
         <Card>
           <p>Card content</p>
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </Item>
-      <Item coord={[1, 2]}>
+      </GridCell>
+      <GridCell rowIndex={0} colIndex={1}>
         <Card>
           <p>Card content</p>
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </Item>
-      <Item coord={[1, 3]}>
+      </GridCell>
+      <GridCell rowIndex={0} colIndex={2}>
         <Card>
           <p>Card content</p>
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </Item>
-      <Item coord={[1, 4]}>
+      </GridCell>
+      <GridCell rowIndex={0} colIndex={3}>
         <Card>
           <p>Card content</p>
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </Item>
-      <Item coord={[2, 1]} rows={3} cols={2}>
+      </GridCell>
+      {/* <GridCell pin={[2, 1]} rows={3} cols={2}>
         <Card ref={colChartRef}>
           <Column
             {...{
@@ -60,8 +61,8 @@ export function Home() {
             }}
           />
         </Card>
-      </Item>
-      <Item coord={[2, 4]} rows={2}>
+      </GridCell>
+      <GridCell pin={[2, 4]} rows={2}>
         <Calendar
           fullscreen={
             // https://github.com/ant-design/ant-design/issues/46567
@@ -69,8 +70,8 @@ export function Home() {
           }
           className={styles.calendar}
         />
-      </Item>
-      <Item coord={[5, 1]} rows={2} cols={2}>
+      </GridCell>
+      <GridCell pin={[5, 1]} rows={2} cols={2}>
         <Card>
           <Scatter
             {...{
@@ -94,8 +95,8 @@ export function Home() {
             }}
           />
         </Card>
-      </Item>
-      <Item coord={[2, 3]} rows={3}>
+      </GridCell>
+      <GridCell pin={[2, 3]} rows={3}>
         <Card>
           <RadialBar
             {...{
@@ -116,7 +117,7 @@ export function Home() {
               radius: 1,
               innerRadius: 0.2,
               tooltip: {
-                items: ['star'],
+                GridCells: ['star'],
               },
               legend: false,
               axis: {
@@ -145,21 +146,21 @@ export function Home() {
             }}
           />
         </Card>
-      </Item>
-      <Item coord={[5, 3]} rows={2}>
+      </GridCell> */}
+      <GridCell rowIndex={4} colIndex={2} rows={2}>
         <Card>
           <p>Card content</p>
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </Item>
-      <Item coord={[4, 4]} rows={3}>
+      </GridCell>
+      <GridCell rowIndex={3} colIndex={3} rows={3}>
         <Card>
           <p>Task</p>
           <p>Task</p>
           <p>Task</p>
         </Card>
-      </Item>
+      </GridCell>
     </Grid>
   );
 }

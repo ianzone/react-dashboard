@@ -1,5 +1,5 @@
 import { Flex, Segmented } from 'antd';
-import { useState } from 'react';
+import { type JSX, useState } from 'react';
 
 type SelectorProps = {
   options: Record<string, JSX.Element>;

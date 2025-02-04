@@ -14,7 +14,9 @@ export function I18N() {
   ];
   return (
     <Dropdown menu={{ items }}>
-      <RiTranslate />
+      <div>
+        <RiTranslate />
+      </div>
     </Dropdown>
   );
 }
