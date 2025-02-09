@@ -1,5 +1,5 @@
 import { useRouter } from '@tanstack/react-router';
-import { useMemo } from 'react';
+import { type JSX, useMemo } from 'react';
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { IoCalendarOutline, IoFileTrayFullOutline } from 'react-icons/io5';
 import { TbBrandWechat } from 'react-icons/tb';
