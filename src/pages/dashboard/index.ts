@@ -1,4 +1,3 @@
-export * from './routes';
 export * from './Account';
 export * from './Home';
 export * from './Chat';

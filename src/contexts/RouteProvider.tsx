@@ -14,7 +14,11 @@ declare module '@tanstack/react-router' {
   }
 
   interface StaticDataRouteOption {
-    key?: string;
+    menu?: {
+      order?: number;
+      label: string;
+      icon: React.ReactElement;
+    };
   }
 }
 

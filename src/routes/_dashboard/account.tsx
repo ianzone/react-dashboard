@@ -1,9 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Account, dashboardRoute } from 'src/pages';
+import { AiOutlineUser } from 'react-icons/ai';
+import { Account } from 'src/pages';
 
 export const Route = createFileRoute('/_dashboard/account')({
   component: Account,
   staticData: {
-    key: dashboardRoute.account.key,
+    menu: {
+      label: '我的账号',
+      icon: <AiOutlineUser />,
+    },
   },
 });

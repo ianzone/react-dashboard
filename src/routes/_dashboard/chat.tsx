@@ -1,9 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
-import { Chat, dashboardRoute } from 'src/pages';
+import { TbBrandWechat } from 'react-icons/tb';
+import { Chat } from 'src/pages';
 
 export const Route = createFileRoute('/_dashboard/chat')({
   component: Chat,
   staticData: {
-    key: dashboardRoute.chat.key,
+    menu: {
+      label: '我的消息',
+      icon: <TbBrandWechat />,
+    },
   },
 });

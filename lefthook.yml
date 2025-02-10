@@ -23,6 +23,9 @@ pre-commit:
           - name: storybook
             glob: "*.{tsx,jsx}"
             run: echo 'use storybook'
+          - name: playwright
+            glob: "*.{tsx,jsx}"
+            run: echo 'use playwright'
           # SECTION - Audit
           - name: gitleaks
             run: gitleaks protect --staged --no-banner
