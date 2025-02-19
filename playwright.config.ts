@@ -15,9 +15,9 @@ export default defineConfig({
   testDir: './e2e',
   outputDir: './e2e-out/test-results',
   expect: {
-    timeout: 10_000,
+    // timeout: 10_000,
     toHaveScreenshot: {
-      maxDiffPixelRatio: 0.05,
+      maxDiffPixelRatio: 0.01,
     },
   },
   /* Run tests in files in parallel */
@@ -34,7 +34,7 @@ export default defineConfig({
   use: {
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
+    screenshot: 'on-first-failure',
     locale: 'zh-CN',
   },
 
@@ -78,7 +78,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'nr dev',
+    command: 'bunx --bun vite',
     port: 5173,
     reuseExistingServer: !process.env.CI,
   },

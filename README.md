@@ -1,10 +1,10 @@
 # Get it started
 
 ```
-degit https://github.com/ianzone/react-spa <project name>
+degit https://github.com/ianzone/react-dashboard <project name>
 cd <project name>
-pnpm i
-pnpm run dev
+bun i
+bun run dev
 ```
 
 # Folder structure
